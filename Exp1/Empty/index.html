@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Default Page</title>
+ </head>
+ <body>
+    <header>
+      <nav>
+        <ul>
+          <li> <a href="index.html">首頁</a> </li>
+          <li> <a href="clock.html">時鐘</a> </li>
+          <li> <a href="dateCalc.html">日期計算</a> </li>
+          <li> <a href="dbTable.html">資料查詢</a> </li>
+          <li> <a href="fileForm.html">檔案上傳</a> </li>          
+          <li> <a href="photoAlbum.html">相簿</a> </li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+      <article>
+        <h2>淺談輕量化的虛擬技術 - Docker容器 </h2>
+        <p>Docker簡介
+          雲端時代的來臨，意味著我們不再需要追求高效能的家用主機，而傾向把複雜運算丟給雲端來處理，數據雲端化的趨勢，也加速雲端伺服器開發的需求。想像若一個開發者，在Amazon申請了AWS雲端服務，然後以LAMP(Linux、Apache、MySQL、PHP)建置其網路平台，即使是一個熟練的工程師，仍需花費不少時間在系統安裝與設定，才能讓手邊的原始碼在網路上執行。而當客戶需求改變時，有可能又要花時間將系統從AWS搬到微軟的Azure平台，這表示工程師又要花時間處理煩瑣的問題。假設在不同的平台上都安裝了Docker的應用程式，就可以將自己開發的程式用容器打包起來，快速移植到另一個平台。 </p>
+        <p> 如下圖所示，容器是一個映像檔(比如說CentOS 6.6)加上自己開發的應用程式，所組合成的架構，新的主機端只要安裝了相同的映像檔(CentOS 6.6)之後，就可以執行既有的應用程式。傳統上必需安裝幾GB大的虛擬主機，而在這個例子上，只要下載兩百多MB的映像檔即可以完成一樣的工作，這是傳統虛擬主機所無法比擬的地方。這邊出現了幾個關鍵字映像檔、容器，之後會有更清楚的說明，這邊只要知道最重要的觀念就是，用Docker建置的軟體(又稱為容器)，可以迅速的移植到不同平台，也就是Docker一直宣揚的精神 "Build, Ship, and Run Any App, Anywhere." </p>
+        <p>Docker的支援與安裝
+          Docker是以Linux為其原生開發，所以在大部份的Linux系統上都可以安裝。但是Docker是在2013年發行初始版本，這意謂著若是要建構Docker開發平台，建議以較新的Linux系統為優先考量。而Windows 和Mac OS作業系統本身無法直接運行，所以要透過Boot2Docker來支援，有興趣的的讀者可以自行參考連結網址。不過對於Windows和Mac OS環境的開發者來說，建議還是先安裝Linux虛擬主機，再用此虛擬主機建置Docker平台，會簡化安裝流程 </p>
+        
+        <h2>Docker的基本概念</h2>
+        <p>剛剛筆者以一個簡單的安裝程序，瞭解Docker怎麼運行，但相信對大部份的讀者來說，其概念還是很模糊，</p>
+        <p>所以接下來這節將介紹Docker的核心概念。主要有四個核心：</p>
+        <ol>
+        <li>  Docker I/O    </li>
+        <li>  倉庫Repository        </li>
+        <li>  映像檔Image        </li>
+        <li>  容器Container        </li>
+        <li> 123456789 </li>
+        </ol>
+        <h2> Table</h2>
+        <table>
+          <tr><th>title1</th><th>title2</th><th>title3</th></tr>
+          <tr><td>img1</td><td>img2</td><td>img3</td></tr>
+          <tr><td>4</td><td>5</td><td>6</td></tr>
+          <tr><td>7</td><td>8</td><td>9</td></tr>
+          <tr><td>10</td><td>11</td><td>12</td></tr>
+          <tr><td>13</td><td>14</td><td>15</td></tr>
+          <tr><td>166</td><td>17</td><td>18</td></tr>
+        </table>
+        <h2>結論</h2>
+        <img src="https://www.cc.ntu.edu.tw/chinese/epaper/0036/11/201603213611009.jpg" />
+      </article>
+    </section>
+    <aside>
+      <ul>
+        <li> <a href="index.html">首頁</a> </li>
+        <li> <a href="clock.html">時鐘</a> </li>
+        <li> <a href="dateCalc.html">日期計算</a> </li>
+        <li> <a href="dbTable.html">資料查詢</a> </li>
+        <li> <a href="fileForm.html">檔案上傳</a> </li>          
+        <li> <a href="photoAlbum.html">相簿</a> </li>
+      </ul>
+    </aside>
+    <footer>
+      <img src="https://lh3.google.com/u/0/ogw/AF2bZygSpu_uHHtA-NoRLxfy-l1EX0QFdy1n7Zg-D_Bfc33ZFw=s32-c-mo" />
+      <h1> 網頁課程 COPYRIGHT&#169;2024</h1>
+
+    </footer>
+  </body>
+</html>

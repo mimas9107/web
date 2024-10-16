@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DB Management Page</title>
+ </head>
+ <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">首頁</a></li>
+          <li><a href="clock.html">時鐘</a></li>
+          <li><a href="photoAlbum.html">相簿</a></li>
+          <li><a href="dateCalc.html">日期計算</a></li>
+          <li><a href="fileForm.html">檔案上傳</a></li>
+          <li><a href="dbTable.html">資料查詢</a></li>
+       </ul> 
+      </nav>
+    </header>
+    <section>
+      <article>
+        <h2>新增資料</h2>
+        <form action="" method="">
+          <label for="addName">姓名</label>
+          <input type="text" id="addName" name="addName" />
+          <label for="addBirth">生日</label>
+          <input type="date" id="addBirth" name="addBirth" />
+          <label for="addPhone">電話</label>
+          <input type="text" id="addPhone" name="addPhone" />
+          <button type="submit">新增</button>
+        </form>
+      </article>
+      <article>
+        <h2>資料查詢</h2>
+        <button type="button" id="getTable" name="getTable">取得列表</button>
+        <table>
+          <tbody>
+            <tr>
+            <th>姓名</th>
+            <th>生日</th>
+            <th>電話</th>
+            <th>執行動作</th>
+            </tr>
+            <tr>
+            <td>john@wda.org.tw</td>
+            <td>1999/1/1</td>
+            <td>0923-123-222</td>
+            <td><button type="button" id="delBtn" name="delBtn">刪除</button></td>
+            </tr>
+            <tr>
+            <td>amy@wda.org.tw</td>
+            <td>1989/5/10</td>
+            <td>0983-563-365</td>
+            <td><button type="button" id="delBtn" name="delBtn">刪除</button></td>
+            </tr>
+            <tr>
+            <td>lee@wda.org.tw</td>
+            <td>2000/10/11</td>
+            <td>0915-131-223</td>
+            <td><button type="button" id="delBtn" name="delBtn">刪除</button></td>
+            </tr>
+            </tbody>
+        </table>
+      </article>
+    </section>
+    <aside>
+      <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="clock.html">時鐘</a></li>
+        <li><a href="photoAlbum.html">相簿</a></li>
+        <li><a href="dateCalc.html">日期計算</a></li>
+        <li><a href="fileForm.html">檔案上傳</a></li>
+        <li><a href="dbTable.html">資料查詢</a></li>
+       </ul>
+    </aside>
+    <footer>
+      <img width="200px" src="https://wdaweb.github.io/index_assets/img/wda.png" /><h1> 網頁課程 COPYRIGHT&#169;2024</h1>
+    </footer>
+  </body>
+</html>
