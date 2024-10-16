@@ -19,35 +19,43 @@
     </header>
     <section>
       <article>
-        <h2>淺談輕量化的虛擬技術 - Docker容器 </h2>
-        <p>Docker簡介
-          雲端時代的來臨，意味著我們不再需要追求高效能的家用主機，而傾向把複雜運算丟給雲端來處理，數據雲端化的趨勢，也加速雲端伺服器開發的需求。想像若一個開發者，在Amazon申請了AWS雲端服務，然後以LAMP(Linux、Apache、MySQL、PHP)建置其網路平台，即使是一個熟練的工程師，仍需花費不少時間在系統安裝與設定，才能讓手邊的原始碼在網路上執行。而當客戶需求改變時，有可能又要花時間將系統從AWS搬到微軟的Azure平台，這表示工程師又要花時間處理煩瑣的問題。假設在不同的平台上都安裝了Docker的應用程式，就可以將自己開發的程式用容器打包起來，快速移植到另一個平台。 </p>
-        <p> 如下圖所示，容器是一個映像檔(比如說CentOS 6.6)加上自己開發的應用程式，所組合成的架構，新的主機端只要安裝了相同的映像檔(CentOS 6.6)之後，就可以執行既有的應用程式。傳統上必需安裝幾GB大的虛擬主機，而在這個例子上，只要下載兩百多MB的映像檔即可以完成一樣的工作，這是傳統虛擬主機所無法比擬的地方。這邊出現了幾個關鍵字映像檔、容器，之後會有更清楚的說明，這邊只要知道最重要的觀念就是，用Docker建置的軟體(又稱為容器)，可以迅速的移植到不同平台，也就是Docker一直宣揚的精神 "Build, Ship, and Run Any App, Anywhere." </p>
-        <p>Docker的支援與安裝
-          Docker是以Linux為其原生開發，所以在大部份的Linux系統上都可以安裝。但是Docker是在2013年發行初始版本，這意謂著若是要建構Docker開發平台，建議以較新的Linux系統為優先考量。而Windows 和Mac OS作業系統本身無法直接運行，所以要透過Boot2Docker來支援，有興趣的的讀者可以自行參考連結網址。不過對於Windows和Mac OS環境的開發者來說，建議還是先安裝Linux虛擬主機，再用此虛擬主機建置Docker平台，會簡化安裝流程 </p>
+        <h2> 簡介：Linked list </h2>
+        <p> Linked list(連結串列)是一種常見的資料結構，其使用node(節點)來記錄、表示、儲存資料(data)，並利用每個node中的pointer指向下一個node，藉此將多個node串連起來，形成Linked list，並以NULL來代表Linked list的終點</p>
+        <p> 若實際打開每個node的內部，至少會包含(1)data來代表資料，與(2)pointer指向下一個node</p>
+        <p> 通常在面對一個Linked list時，能夠公開存取(access)的node只有「第一個node」，以ListNode *first表示，不過因為node中有pointer記錄下一個node的記憶體位置，便能夠讀取下一個node的data與pointer，換句話說，有了node中的pointer就可以在Linked list中「移動(traversal)」，更進一步，便能進行諸如「新增節點」、「刪除節點」、「印出Linked list」等等的資料處理</p>
         
-        <h2>Docker的基本概念</h2>
-        <p>剛剛筆者以一個簡單的安裝程序，瞭解Docker怎麼運行，但相信對大部份的讀者來說，其概念還是很模糊，</p>
-        <p>所以接下來這節將介紹Docker的核心概念。主要有四個核心：</p>
+        <h2>以兩個class(類別)表示Linked list</h2>
+        <p> 若以C++的class(類別)來實作Linked list，可以利用兩個class，使得node的資料不會被任意更動(也就是封裝(Encapsulation)的概念)。
+          使用struct來代表node也是常見的做法，差別在於，struct的資料成員(data member)一定是公開的(public)。</p>
+        <p> class ListNode的private data有兩項，一項代表著資料項目(在此以int示範)，一項是「指向型別(type)為ListNode之指標」，以ListNode *next表示，用來記錄「下一個node」的記憶體位置。
+
+          在class LinkedList的private data中，最基本一定會有代表「第一個node」的ListNode *first，其餘資料項目可以視情況增加，像是int size用來記錄Linked list的長度等等。</p>
         <ol>
-        <li>  Docker I/O    </li>
-        <li>  倉庫Repository        </li>
-        <li>  映像檔Image        </li>
-        <li>  容器Container        </li>
-        <li> 123456789 </li>
+          <li> class ListNode</li>
+          <li>    ＝＝int data;</li>
+          <li>    ＝＝ListNode *next;</li>
+          <li> class LinkedList</li>
+          <li>    ＝＝ListNode *first;</li>
         </ol>
-        <h2> Table</h2>
+        <h2> 比較：Array與Linked list</h2>
         <table>
-          <tr><th>title1</th><th>title2</th><th>title3</th></tr>
-          <tr><td>img1</td><td>img2</td><td>img3</td></tr>
-          <tr><td>4</td><td>5</td><td>6</td></tr>
-          <tr><td>7</td><td>8</td><td>9</td></tr>
-          <tr><td>10</td><td>11</td><td>12</td></tr>
-          <tr><td>13</td><td>14</td><td>15</td></tr>
-          <tr><td>166</td><td>17</td><td>18</td></tr>
+          <tr><th>Array優點：</th><th>Array缺點：</th><th>Array適用時機：</th></tr>
+
+          <tr><td>random access</td><td>新增/刪除資料很麻煩</td><td>希望能夠快速存取資料。</td></tr>
+
+          <tr><td>較Linked list為節省記憶體空間</td><td>若資料數量時常在改變，要時常調整矩陣的大小</td><td>已知欲處理的資料數量，便能確認矩陣的大小。</td></tr>
+
+          <tr><td>Linked list優點：</td><td>Linked list缺點：</td><td>Linked list適用時機：</td></tr>
+
+          <tr><td>新增/刪除資料較Array簡單</td><td>要找到特定node，需要從頭(ListNode *first)開始找起</td><td>需要頻繁地新增/刪除資料時</td></tr>
+
+          <tr><td>Linked list的資料數量可以是動態的</td><td>需要額外的記憶體空間來儲存pointer</td><td>不需要快速查詢資料</td></tr>
+
+          <tr><td>不需要如同Array般搬動其餘元素</td><td>搜尋的時間複雜度為O(N
+            )</td><td>無法預期資料數量時，使用Linked list就沒有resize的問題。</td></tr>
         </table>
-        <h2>結論</h2>
-        <img src="https://www.cc.ntu.edu.tw/chinese/epaper/0036/11/201603213611009.jpg" />
+        <h2>參考資料：</h2>
+        <img src="https://github.com/alrightchiu/SecondRound/blob/master/content/Algorithms%20and%20Data%20Structures/BasicDataStructures/LinkedList/Intro/f2.png?raw=true" />
       </article>
     </section>
     <aside>
