@@ -6,8 +6,8 @@ section {
 }
 
 article {
-  float: right;
-  width: 40%;
+  float: left;
+  width: 45%;
   height: 45vh; /* 看得到的區域高度 vision height */
   /* box */
   border-style: dashed;
@@ -65,35 +65,42 @@ footer img {
 }
    
 /* 1024px 以下開始為平板 ( ex: iPad Pro )  */
-/* @media screen and (max-width : 1024px ) {
+@media screen and (max-width : 1024px ) {
   section {
-
+    float: left;
+    width: 80%;
   }
 
   aside {
+    float: right;
+    width: 20%;
 
   }
 
   article {
+    width: 98%;
 
   }     
-} */
+}
    
 /* 768px 以下開始為 小平板 & 手機(橫)  */
-/* @media screen and (max-width : 768px ) {
+@media screen and (max-width : 768px ) {
   section {
-
+    float: left;
+    width: 100%;
   }
 
   aside {
+    float: left;
+    width: 100%;
 
   }
 
   article
   {
-
+    width: 98%;
   }
-} */
+}
    
 /* 576px 以下開始為 手機(直)  */
 /* @media screen and (max-width : 576px ) {
