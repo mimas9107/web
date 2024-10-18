@@ -1,0 +1,195 @@
+/* Step 1: basic css style rules */
+p {
+  /* color */
+  color: black;
+  background-color: grey;
+  /* text */
+  text-indent: 4ch;
+  /* font */
+  font-size: 12pt;
+  /* box */ 
+  padding: 10pt;
+}
+
+h1 {
+  /* color */
+  color: white;
+  background-color: black;
+  /* text */
+  text-align: center;
+  vertical-align: middle;
+  /* font */
+  font-size: 10pt;
+  font-weight: bold;
+  /* box */ 
+
+}
+
+h2 {
+  /* color */
+  color: black;
+  background-color: white;
+  /* text */
+  text-decoration-line: underline;
+  /* font */
+  font-size: 20pt;
+  font-style: italic;
+  font-weight: bold;
+  /* box */ 
+
+}
+
+table {
+  /* border */
+  border-collapse: collapse;
+  /* text */
+  text-align: center;
+  /* font */
+  /* others */
+  width: 100%;
+}
+
+table, th, td {
+  /* border */
+  border-color: red;
+  border-style: solid;
+  /* box */ 
+}
+
+img {
+  /* others */
+  width: 100%;  
+}
+
+/* Step 2: menu bar */
+/* Navigation Bar: horizontal */
+nav ul {
+  list-style-type: none;
+  overflow: hidden;
+  /* color */
+  background-color: #333;
+  /* box */
+  margin: 0;
+  padding: 0;
+}  
+
+nav ul li {
+  float: left;
+}
+
+nav ul li a {
+  display: block;
+  /* color */
+  color: white;
+  /* box */
+  padding: 14px 16px;
+  /* text */
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  /* color */
+  background-color: #111;
+}
+
+/* Dropdown Menu => 要記得加入新的HTML Elements */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  /* color */
+  background-color: #f9f9f9;
+  /* box */
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  display: block;
+  /* color */
+  color: black;
+  /* box */
+  padding: 12px 16px;
+  /* text */
+  text-decoration: none;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #d1d1d1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Aside Bar: vertical */
+aside ul {
+  list-style-type: none;
+  /* box */
+  margin: 0;
+  padding: 0;
+  /* color */
+  background-color: #f1f1f1;  
+}
+
+aside ul li a {
+  display: block;
+  /* color */
+  color: #000;
+  /* box */
+  padding: 8px 16px;
+  /* text */
+  text-decoration: none;
+}
+
+aside ul li a:hover {
+  /* color */
+  background-color: #555;
+  color: white;
+}
+
+
+/* Step 3: Form Style & Validation */
+form {
+  /* box */
+  padding: 5px;
+  border: 2px solid #FFC90E;
+  border-radius: 5px;
+}
+
+form input {
+  width: 95%;
+  /* box */
+  margin: 5px;
+}
+
+form button {
+  width: 95%;
+  /* box */
+  margin: 5px;
+  /* color */
+  background-color: green;
+  color: white;
+}
+
+form .necessary:after {
+  content:" *";
+  /* color */
+  color: red;
+}
+
+form input:valid {
+  /* color */
+  border-color: black;
+  /* box */
+  border-style: solid;
+}
+
+form input:invalid {
+  /* color */
+  border-color: red;
+  /* box */
+  border-style: dashed;
+  background-color: pink;
+}

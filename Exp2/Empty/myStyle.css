@@ -1,0 +1,202 @@
+/* Step 1: basic css style rules */
+p {
+  /* color */
+  color: #000F1F;
+  background: linear-gradient(white,gray);
+  
+  /* text */
+  text-indent: 8ch;
+  /* font */
+  font-size: 14pt;
+  /* box */
+  padding: 16px;
+
+}
+
+h1 {
+  /* color */
+
+  /* text */
+  text-align: right;
+  /* font */
+  font-size: 10pt;
+  /* box */ 
+  vertical-align: middle;
+
+}
+
+h2 {
+  /* color */
+
+  /* text */
+  text-decoration-line: underline; 
+  /* text-decoration-style: double;
+  
+  /* font */
+  font-weight: bold;
+  /* box */ 
+
+}
+
+table {
+  /* border */
+  border-collapse: collapse;
+  border-radius:10%;
+  /* text */
+
+  /* font */
+  /* others */
+  
+  width: 100%;
+}
+
+table, th, td {
+  /* border */
+  
+  border-style: solid;
+  border-color: green;
+  
+
+  /* box */ 
+}
+
+img {
+  /* others */
+  width: 100%;  
+}
+
+/* Step 2: menu bar */
+/* Navigation Bar: horizontal */
+nav ul {
+  list-style-type: none;
+  overflow: hidden;
+  /* color */
+  background-color: #003F3F;
+  /* box */
+  margin: 0;
+  padding: 0;
+}  
+
+nav ul li {
+  float: left; /* nav ul li列表 各項目會變浮動,然後靠左對齊 */
+
+}
+
+nav ul li a {
+  display: block;
+  /* color */
+  color: white;
+  /* box */
+  padding: 14px 16px;
+  /* text */
+  text-decoration: none;
+}
+
+nav ul li a:hover {  /*當滑鼠移上去會變色*/
+  /* color */
+  background-color: #111;
+}
+
+/* Dropdown Menu => 要記得加入新的HTML Elements */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  /* color */
+  background-color: #f9f9f9;
+  /* box */
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  display: block;
+  /* color */
+  color: black;
+  /* box */
+  padding: 12px 16px;
+  /* text */
+  text-decoration: none;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #11d1d1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Aside Bar: vertical */
+aside ul {
+  list-style-type: none; /*點項目符號會消失*/
+  /* float:top right; */
+  /* box */
+  margin: 0;
+  padding: 0;
+  /* color */
+  background-color: #f1f1f1;  
+}
+
+aside ul li a {
+  display: block;
+
+  /* color */
+  color: #000;
+  /* box */
+  padding: 8px 16px;
+  /* text */
+  text-decoration: none;
+}
+
+aside ul li a:hover {
+  /* color */
+  background-color: #555;
+  color: white;
+}
+
+
+/* Step 3: Form Style & Validation */
+form {
+  /* box */
+  padding: 5px;
+  border: 2px solid #FFC90E;
+  border-radius: 5px;
+}
+
+form input {
+  width: 95%;
+  /* box */
+  margin: 5px;
+}
+
+form button {
+  width: 95%;
+  /* box */
+  margin: 5px;
+  /* color */
+  background-color: green;
+  color: white;
+}
+
+form .necessary:after { /* class=necessary 後面加上紅色星號 */
+  content:" *";
+  /* color */
+  color: red;
+}
+
+form input:valid {
+  /* color */
+  border-color: black;
+  /* box */
+  border-style: solid;
+}
+
+form input:invalid {
+  /* color */
+  border-color: red;
+  background-color: pink;
+  /* box */
+  border-style: dashed;
+}

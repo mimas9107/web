@@ -1,0 +1,25 @@
+/* 以 Mobile 版為主要 Style，CSS 對應 width 576 or 375 or 320以下 */
+/* 576px 以下開始為 手機(直) ，即預設Layout  */
+
+
+/* 576px 大於開始為 小平板 & 手機(橫)  */
+@media screen and (min-width : 576px ) {
+
+}
+
+/* 768px 大於開始為平板 ( ex: iPad Pro )  */
+@media screen and (min-width : 768px ) {
+
+}  
+
+/* 1024px 大於開始為筆電  */
+@media screen and (min-width : 1024px ) {
+
+}
+
+/* 1440px 大於開始為 PC  */
+@media screen and (min-width : 1440px ) {
+
+}
+
+/* 以下自訂義特殊區塊 - 通常不會用到 */

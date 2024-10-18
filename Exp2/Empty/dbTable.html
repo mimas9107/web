@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DB Management Page</title>
+    <!-- CSS設定 -->
+    <link href="myStyle.css" rel="stylesheet" type="text/css">   
+
+    <!-- RWD配合之CSS設定，若要啟用RWD則將上面一行註解，改成下面任一行 -->
+    <!--
+    <link href="mobileRWD.css" rel="stylesheet" type="text/css">
+    -->
+    <link href="pcRWD.css" rel="stylesheet" type="text/css">
+    
+    <!-- 若要啟用RDW則啟用下一行 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+
+    <!-- 若想強迫關閉RWD功能，則以下面任一行取代上面一行 -->
+    <!--
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">        
+    -->
+ </head>
+ <body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="clock.html">時鐘</a></li>
+        <li><a href="photoAlbum.html">相簿</a></li>
+        <li><a href="dateCalc.html">日期計算</a></li>
+        <li><a href="fileForm.html">檔案上傳</a></li>
+        <li><a href="dbTable.html">資料查詢</a></li>
+     </ul> 
+    </nav>
+  </header>
+  <section>
+    <article>
+      <h2>新增資料</h2>
+      <form action="" method="">
+        <!-- 增加class：necessary => 會增加"*"到文字上 -->
+        <label for="addName" class="necessary">姓名</label>
+        <!-- 增加 required -->
+        <input type="text" id="addName" name="addName" required />
+        <!-- 增加class：necessary => 會增加"*"到文字上 -->
+        <label for="addBirth" class="necessary">生日</label>
+        <!-- 增加 required -->
+        <input type="date" id="addBirth" name="addBirth" required />
+        <!-- 增加class：necessary => 會增加"*"到文字上 -->
+        <label for="addPhone" class="necessary">電話</label>
+        <!-- 增加placeholder -->
+        <!-- 增加 required -->
+        <!-- 增加 minlenght -->
+        <!-- 增加 maxlenght --> 
+        <!-- 增加 pattern (regular expression) -->
+        <input type="text" id="addPhone" name="addPhone" required placeholder="0987-654-321" pattern="09[0-9]{2}-[0-9]{3}-[0-9]{3}" minlength="12" maxlength="12"/>
+        <button type="submit">新增</button>
+      </form>
+    </article>
+    <article>
+      <h2>資料查詢</h2>
+      <button type="button" id="getTable" name="getTable">取得列表</button>
+      <table>
+        <tbody>
+          <tr>
+          <th>姓名</th>
+          <th>生日</th>
+          <th>電話</th>
+          <th>執行動作</th>
+          </tr>
+          <tr>
+          <td>john@wda.org.tw</td>
+          <td>1999/1/1</td>
+          <td>0923-123-222</td>
+          <td><button type="button" id="delBtn" name="delBtn">刪除</button></td>
+          </tr>
+          <tr>
+          <td>amy@wda.org.tw</td>
+          <td>1989/5/10</td>
+          <td>0983-563-365</td>
+          <td><button type="button" id="delBtn" name="delBtn">刪除</button></td>
+          </tr>
+          <tr>
+          <td>lee@wda.org.tw</td>
+          <td>2000/10/11</td>
+          <td>0915-131-223</td>
+          <td><button type="button" id="delBtn" name="delBtn">刪除</button></td>
+          </tr>
+          </tbody>
+      </table>
+    </article>
+  </section>
+  <aside>
+    <ul>
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="clock.html">時鐘</a></li>
+      <li><a href="photoAlbum.html">相簿</a></li>
+      <li><a href="dateCalc.html">日期計算</a></li>
+      <li><a href="fileForm.html">檔案上傳</a></li>
+      <li><a href="dbTable.html">資料查詢</a></li>
+     </ul>
+  </aside>
+  <footer>
+    <img width="200px" src="https://wdaweb.github.io/index_assets/img/wda.png" /><h1> 網頁課程 COPYRIGHT&#169;2024</h1>
+  </footer>
+</body>
+</html>
