@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Clock Page</title>
+    <!-- CSS設定 -->
+    <link href="myStyle.css" rel="stylesheet" type="text/css">    
+
+    <!-- RWD配合之CSS設定，若要啟用RWD則將上面一行註解，改成下面任一行 -->
+    <!--
+    <link href="mobileRWD.css" rel="stylesheet" type="text/css">
+    -->
+    <link href="pcRWD.css" rel="stylesheet" type="text/css">
+
+    <!-- 若要啟用RDW則啟用下一行 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+
+    <!-- 若想強迫關閉RWD功能，則以下面任一行取代上面一行 -->
+    <!--
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">        
+    -->
+    <!-- 取得電腦時間的JS Code -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const time = new Date();
+        const hour = -3600 * (time.getHours() % 12);
+        const mins = -60 * time.getMinutes();
+        var app = document.querySelector("#app");
+        app.style.setProperty('--_dm', `${mins}s`);
+        app.style.setProperty('--_dh', `${(hour+mins)}s`);
+      });
+    </script>
+ </head>
+ <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">首頁</a></li>
+          <li><a href="clock.html">時鐘</a></li>
+          <li><a href="photoAlbum.html">相簿</a></li>
+          <li><a href="dateCalc.html">日期計算</a></li>
+          <li><a href="fileForm.html">檔案上傳</a></li>
+          <li><a href="dbTable.html">資料查詢</a></li>  
+        </ul>
+      </nav>
+    </header>
+    <section>
+      <article class="transContainer">
+        <!-- 新增 Transition 效果 -->
+        <div class="rectangle"></div>
+        <button class="button"><span>Hover </span></button>
+        <!-- 新增 Transform 效果 -->
+        <div class="relativeContainer"> 
+          <div class="letter-image">
+            <div class="animated-mail">
+              <div class="back-fold"></div>
+              <div class="letter">
+                <div class="letter-border"></div>
+                <div class="letter-title"></div>
+                <div class="letter-context"></div>
+                <div class="letter-stamp">
+                  <div class="letter-stamp-inner"></div>
+                </div>
+              </div>
+              <div class="top-fold"></div>
+              <div class="body"></div>
+              <div class="left-fold"></div>
+            </div>
+            <div class="shadow"></div>
+          </div>
+        </div>
+        <!-- 新增 Animation 效果 -->
+        <div class="loader"></div> 
+      </article>
+      <article>
+        <!-- 新增 Animation 效果 -->
+        <div class="clock">
+          <div class="clock-face" id="app">
+            <time datetime="12:00">12</time>
+            <time datetime="1:00">1</time>
+            <time datetime="2:00">2</time>
+            <time datetime="3:00">3</time>
+            <time datetime="4:00">4</time>
+            <time datetime="5:00">5</time>
+            <time datetime="6:00">6</time>
+            <time datetime="7:00">7</time>
+            <time datetime="8:00">8</time>
+            <time datetime="9:00">9</time>
+            <time datetime="10:00">10</time>
+            <time datetime="11:00">11</time>
+            <!-- 指針 -->
+            <span class="arm seconds"></span>
+            <span class="arm minutes"></span>
+            <span class="arm hours"></span>
+          </div>
+        </div>       
+      </article>
+    </section>
+    <aside>
+      <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="clock.html">時鐘</a></li>
+        <li><a href="photoAlbum.html">相簿</a></li>
+        <li><a href="dateCalc.html">日期計算</a></li>
+        <li><a href="fileForm.html">檔案上傳</a></li>
+        <li><a href="dbTable.html">資料查詢</a></li>
+       </ul>
+    </aside>
+    <footer>
+      <img width="200px" src="https://wdaweb.github.io/index_assets/img/wda.png" /><h1> 網頁課程 COPYRIGHT&#169;2024</h1>
+    </footer>
+  </body>
+</html>

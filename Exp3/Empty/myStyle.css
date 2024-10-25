@@ -1,0 +1,668 @@
+/* Photo Album */
+.gallery {
+  display:flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.gallery img {
+  flex: 45%;
+  max-width: 45%;
+  object-fit: cover;
+  /* box - border */
+  border-radius: 10px;
+}
+
+/* Photo Album using Transform */
+.gallery img:hover {
+  transition: all 2s;
+  transform: scale(0.5) rotate(359deg);
+  
+}
+
+/* Photo Album with Tabs */
+.gallery-tab {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+
+}
+
+.gallery-tab input {
+  display: none;
+}
+
+.gallery-tab label {
+  /* Box */
+  margin: 0 5px 5px 0; 
+  padding: 10px 16px; 
+  border-radius: 5px; 
+  /* color */ 
+  background: #024f38; 
+  color: #fff; 
+  /* others */
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.tab_content {
+  display: none;
+  order: 1;
+  width: 100%;
+  /* Box */ 
+  padding: 15px; 
+  margin: 15px;
+  border: 1px solid #5e0eff; 
+  border-radius: 5px;
+}
+
+.gallery-tab input:checked + label, .gallery-tab label:hover {
+  opacity: 1; 
+}
+
+.gallery-tab input:checked + label + .tab_content {
+  display: initial;
+}
+
+/* Transition - Button */
+.transContainer {
+  display: flex;
+}
+
+.transContainer .rectangle {
+  transition: all 2s;
+  /* color */
+  background: red;
+  /* box */
+  margin: 5px;
+  /* others */
+  width: 100px;
+  height: 100px;
+  
+}
+
+.transContainer .rectangle:hover {
+  background: yellow;
+  width: 300px;
+}
+
+.button {
+  display: inline-block;
+  transition: all 1s;
+  /* color */
+  color: #FFFFFF;
+  background-color: #f4511e;
+  /* text */
+  text-align: center;
+  font-size: 28px;
+  /* box */
+  border-radius: 4px;
+  border: none;
+  padding: 20px;
+  margin: 5px;
+  /* others */
+  width: 200px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.button span {
+  display: inline-block;
+  transition: all 1s;
+  /* others */
+  cursor: pointer;
+  position: relative;
+}
+
+.button span:after {
+  content: '\00bb';
+  transition: all 1s;
+  /* others */
+  position: absolute;
+  top: 0;
+  right: -20px;
+  opacity: 0;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  right: 0;
+  opacity: 1;
+}
+
+/* Transform - Opening Envelope  */
+.relativeContainer {
+  position: relative;
+  top: 40%;
+  left: 8%;
+  width: 300px;
+  height: 250px;
+}
+
+/* 以下是別人寫好的 Opening Envelope */
+
+.letter-image {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 200px;
+	height: 200px;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	cursor: pointer;
+}
+
+.animated-mail {
+	position: absolute;
+	height: 150px;
+	width: 200px;
+	-webkit-transition: .4s;
+	-moz-transition: .4s;
+	transition: .4s;
+	
+	.body {
+		position: absolute;
+		bottom: 0;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 0 0 100px 200px;
+		border-color: transparent transparent #e95f55 transparent;
+		z-index: 2;
+	}
+	
+	.top-fold {
+		position: absolute;
+		top: 50px;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 50px 100px 0 100px;
+		-webkit-transform-origin: 50% 0%;
+		-webkit-transition: transform .4s .4s, z-index .2s .4s;
+		-moz-transform-origin: 50% 0%;
+		-moz-transition: transform .4s .4s, z-index .2s .4s;
+		transform-origin: 50% 0%;
+		transition: transform .4s .4s, z-index .2s .4s;
+		border-color: #cf4a43 transparent transparent transparent;
+		z-index: 2;
+	}
+	
+	.back-fold {
+		position: absolute;
+		bottom: 0;
+		width: 200px;
+		height: 100px;
+		background: #cf4a43;
+		z-index: 0;
+	}
+	
+	.left-fold {
+		position: absolute;
+		bottom: 0;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 50px 0 50px 100px;
+		border-color: transparent transparent transparent #e15349;
+		z-index: 2;
+	}
+	
+	.letter {
+		left: 20px;
+		bottom: 0px;
+		position: absolute;
+		width: 160px;
+		height: 60px;
+		background: white;
+		z-index: 1;
+		overflow: hidden;
+		-webkit-transition: .4s .2s;
+		-moz-transition: .4s .2s;
+		transition: .4s .2s;
+		
+		.letter-border {
+			height: 10px;
+			width: 100%;
+      background: repeating-linear-gradient(
+        -45deg,
+        #cb5a5e,
+        #cb5a5e 8px,
+        transparent 8px,
+        transparent 18px
+      );
+		}
+		
+		.letter-title {
+			margin-top: 10px;
+			margin-left: 5px;
+			height: 10px;
+			width: 40%;
+			background: #cb5a5e;
+		}
+		.letter-context {
+			margin-top: 10px;
+			margin-left: 5px;
+			height: 10px;
+			width: 20%;
+			background: #cb5a5e;
+		}
+		
+		.letter-stamp {
+			margin-top: 30px;
+			margin-left: 120px;
+			border-radius: 100%;
+			height: 30px;
+			width: 30px;
+			background: #cb5a5e;
+			opacity: 0.3;
+		}
+	}
+}
+
+.shadow {
+	position: absolute;
+	top: 200px;
+	left: 50%;
+	width: 400px;
+	height: 30px;
+	transition: .4s;
+	transform: translateX(-50%);
+	-webkit-transition: .4s;
+	-webkit-transform: translateX(-50%);
+	-moz-transition: .4s;
+	-moz-transform: translateX(-50%);
+	
+	border-radius: 100%;
+	background: radial-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.0), rgba(0,0,0,0.0));
+}
+
+	.letter-image:hover {
+		.animated-mail {
+			transform: translateY(50px);
+			-webkit-transform: translateY(50px);
+			-moz-transform: translateY(50px);
+		}
+		
+		.animated-mail .top-fold {
+			transition: transform .4s, z-index .2s;
+			transform: rotateX(180deg);
+			-webkit-transition: transform .4s, z-index .2s;
+			-webkit-transform: rotateX(180deg);
+			-moz-transition: transform .4s, z-index .2s;
+			-moz-transform: rotateX(180deg);
+			z-index: 0;
+		}
+		
+		.animated-mail .letter {
+			height: 180px;
+		}
+		
+		.shadow {
+			width: 250px;
+		}
+	}
+/* 以上是別人寫好的 Opening Envelope */
+
+/* Animation - Clock */
+/* 錶面 */
+.clock {
+  --_ow: clamp(5rem,30vw,40rem);
+  --_w: 88cqi;
+  --_sz: 12cqi;
+  --_r: calc((var(--_w) - var(--_sz)) / 2);
+
+  background: #222;
+  block-size: var(--_ow);
+  border-radius: 24%;
+  container-type: inline-size;
+  display: grid;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  inline-size: var(--_ow);
+  margin-inline: auto;
+  place-content: center;
+}
+
+.clock-face {
+  aspect-ratio: 1;
+  background: var(--_bgc, #FFF);
+  border-radius: 50%;
+  block-size: var(--_w);
+  font-size: 6cqi;
+  font-weight: 700;
+  list-style-type: none;
+  inline-size: var(--_w);
+  padding: unset;
+  position: relative;
+}
+
+.clock-face time {
+  --_x: calc(var(--_r) + (var(--_r) * cos(var(--_d))));
+  --_y: calc(var(--_r) + (var(--_r) * sin(var(--_d))));
+  display: grid;
+  height: var(--_sz);
+  left: var(--_x);
+  place-content: center;
+  position: absolute;
+  top: var(--_y);
+  width: var(--_sz);
+}
+
+.clock-face time:nth-child(1) { --_d: 270deg; }
+.clock-face time:nth-child(2) { --_d: 300deg; }
+.clock-face time:nth-child(3) { --_d: 330deg; }
+.clock-face time:nth-child(4) { --_d: 0deg; }
+.clock-face time:nth-child(5) { --_d: 30deg; }
+.clock-face time:nth-child(6) { --_d: 60deg; }
+.clock-face time:nth-child(7) { --_d: 90deg; }
+.clock-face time:nth-child(8) { --_d: 120deg; }
+.clock-face time:nth-child(9) { --_d: 150deg; }
+.clock-face time:nth-child(10) { --_d: 180deg; }
+.clock-face time:nth-child(11) { --_d: 210deg; }
+.clock-face time:nth-child(12) { --_d: 240deg; }
+
+/* 指針 */
+.arm {
+  background-color: var(--_abg);
+  border-radius: calc(var(--_aw)*2);
+  display: block;
+  height: var(--_ah);  
+  left: calc((var(--_w) - var(--_aw))/2);
+  position: absolute;
+  top: calc((var(--_w)/2) - var(--_ah));
+  transform: rotate(0deg);
+  transform-origin: bottom;
+  width: var(--_aw);
+
+}
+
+.seconds {
+  --_abg: hsl(0, 5%, 40%);
+  --_ah: 145px;
+  --_aw: 2px;
+  animation: turn 60s steps(60, end) infinite;
+}
+
+.minutes {
+  --_abg: #333;
+  --_ah: 145px;
+  --_aw: 6px;
+  animation: turn 3600s steps(60,end) infinite;
+  animation-delay: var(--_dm,0s);
+}
+
+.hours {
+  --_abg: red;
+  --_ah: 110px;
+  --_aw: 6px;
+  animation: turn 43200s linear infinite;
+  animation-delay: var(--_dh, 0s);
+}
+
+@keyframes turn {
+  to{
+    transform: rotate(1turn);
+  }
+}
+
+/* Animation - Progress Loader */
+/* HTML: <div class="loader"></div> */
+.loader {
+  display: inline-grid;
+  width: 90px;
+  aspect-ratio: 1;
+  animation: l3-0 5s steps(10) infinite;
+}
+.loader:before,
+.loader:after {
+  content:"";
+  grid-area: 1/1;
+}
+.loader:before {
+  clip-path: polygon(100% 50%,90.45% 79.39%,65.45% 97.55%,34.55% 97.55%,9.55% 79.39%,0% 50%,9.55% 20.61%,34.55% 2.45%,65.45% 2.45%,90.45% 20.61%,100% 50%,85.6% 24.14%,63.6% 8.15%,36.4% 8.15%,14.4% 24.14%,6% 50%,14.4% 75.86%,36.4% 91.85%,63.6% 91.85%,85.6% 75.86%,94% 50%,85.6% 24.14%);
+  background: #574951;
+}
+.loader:after {
+  background: #83988E;
+  clip-path: polygon(100% 50%,65.45% 97.55%,9.55% 79.39%,9.55% 20.61%,65.45% 2.45%);
+  margin: 27%;
+  translate: 46% 0;
+  transform-origin: right;
+  animation: l3-1 .5s linear infinite;
+}
+@keyframes l3-0 {to{rotate: 1turn}}
+@keyframes l3-1 {
+  0%{rotate:  18deg}
+  to{rotate: -18deg}
+}
+
+/* HTML: <div class="loader"></div> */
+.loader2 {
+  position: relative;
+	top: 200px;
+	left: 100px;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  display: inline-grid;
+}
+.loader2:before,
+.loader2:after {
+  content:"Loading...";
+  grid-area: 1/1;
+  -webkit-mask:linear-gradient(90deg,#000 50%,#0000 0) 0 50%/2ch 100%;
+  animation: l29 2s infinite;
+}
+.loader2:after {
+  -webkit-mask-position:1ch 50%;
+  --s:-1;
+}
+@keyframes l29 {
+   80%,100% {transform: rotate(calc(var(--s,1)*1turn))}
+}
+
+
+/* 以下為前一次上課已經練習過的 */
+/* ========================= */
+/* Step 1: basic css style rules */
+p {
+  /* color */
+  color: black;
+  background-color: grey;
+  /* text */
+  text-indent: 4ch;
+  /* font */
+  font-size: 12pt;
+  /* box */ 
+  padding: 10pt;
+}
+
+h1 {
+  /* color */
+  color: white;
+  background-color: black;
+  /* text */
+  text-align: center;
+  vertical-align: middle;
+  /* font */
+  font-size: 10pt;
+  font-weight: bold;
+  /* box */ 
+
+}
+
+h2 {
+  /* color */
+  color: black;
+  background-color: white;
+  /* text */
+  text-decoration-line: underline;
+  /* font */
+  font-size: 20pt;
+  font-style: italic;
+  font-weight: bold;
+  /* box */ 
+
+}
+
+table {
+  /* border */
+  border-collapse: collapse;
+  /* text */
+  text-align: center;
+  /* font */
+  /* others */
+  width: 100%;
+}
+
+table, th, td {
+  /* border */
+  border-color: red;
+  border-style: solid;
+  /* box */ 
+}
+
+img {
+  /* others */
+  width: 100%;  
+}
+
+/* Step 2: menu bar */
+/* Navigation Bar: horizontal */
+nav ul {
+  list-style-type: none;
+  overflow: hidden;
+  /* color */
+  background-color: #333;
+  /* box */
+  margin: 0;
+  padding: 0;
+}  
+
+nav ul li {
+  float: left;
+}
+
+nav ul li a {
+  display: block;
+  /* color */
+  color: white;
+  /* box */
+  padding: 14px 16px;
+  /* text */
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  /* color */
+  background-color: #111;
+}
+
+/* Dropdown Menu => 要記得加入新的HTML Elements */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  /* color */
+  background-color: #f9f9f9;
+  /* box */
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  display: block;
+  /* color */
+  color: black;
+  /* box */
+  padding: 12px 16px;
+  /* text */
+  text-decoration: none;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #d1d1d1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Aside Bar: vertical */
+aside ul {
+  list-style-type: none;
+  /* box */
+  margin: 0;
+  padding: 0;
+  /* color */
+  background-color: #f1f1f1;  
+}
+
+aside ul li a {
+  display: block;
+  /* color */
+  color: #000;
+  /* box */
+  padding: 8px 16px;
+  /* text */
+  text-decoration: none;
+}
+
+aside ul li a:hover {
+  /* color */
+  background-color: #555;
+  color: white;
+}
+
+
+/* Step 3: Form Style & Validation */
+form {
+  /* box */
+  padding: 5px;
+  border: 2px solid #FFC90E;
+  border-radius: 5px;
+}
+
+form input {
+  width: 95%;
+  /* box */
+  margin: 5px;
+}
+
+form button {
+  width: 95%;
+  /* box */
+  margin: 5px;
+  /* color */
+  background-color: green;
+  color: white;
+}
+
+form .necessary:after {
+  content:" *";
+  /* color */
+  color: red;
+}
+
+form input:valid {
+  /* color */
+  border-color: black;
+  /* box */
+  border-style: solid;
+}
+
+form input:invalid {
+  /* color */
+  border-color: red;
+  /* box */
+  border-style: dashed;
+  background-color: pink;
+}
