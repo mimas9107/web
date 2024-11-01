@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Date/Time Calculation Page</title>
+  <!-- 引用 Pure.CSS -->
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+    integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css">
+  <!-- <link rel="stylesheet" href="pure-skin-mine.css" -->
+</head>
+
+<!-- 套用 pure-g -->
+<body class="pure-g">
+  <!-- 套用 pure-u-* -->
+  <header class="pure-u-1">
+    <!-- 套用 pure-menu -->
+    <nav class="pure-menu pure-menu-horizontal">
+      <!-- 套用 pure-menu-list -->
+      <ul class="pure-menu-list">
+        <!-- <li>要套用"pure-menu-item" class -->
+        <!-- <a>要套用"pure-menu-link" class -->        
+        <li class="pure-menu-item"><a class="pure-menu-link" href="index.html">首頁</a></li>
+        <li class="pure-menu-item"><a class="pure-menu-link" href="clock.html">時鐘</a></li>
+        <li class="pure-menu-item"><a class="pure-menu-link" href="photoAlbum.html">相簿</a></li>
+        <li class="pure-menu-item"><a class="pure-menu-link" href="dateCalc.html">日期計算</a></li>
+        <li class="pure-menu-item"><a class="pure-menu-link" href="fileForm.html">檔案上傳</a></li>
+        <li class="pure-menu-item"><a class="pure-menu-link" href="dbTable.html">資料查詢</a></li>
+        <!-- 下面是 dropdown menu -->
+        <!-- 套用 pure-menu-has-clildren pure-menu-allow-hover -->
+        <li class="pure-memu-item pure-menu-has-clildren pure-menu-allow-hover">
+          <a class="pure-menu-link" href="javascript:void(0)">Dropdown Menu</a>
+          <!-- 之前只用<div><a>請改成<ul><li>選單形式 -->
+          <!-- <div class="dropdown-content"> -->
+          <!-- <ul>要套用"pure-menu-children" class -->
+          <ul class="pure-menu-children">
+            <!-- <li>要套用"pure-menu-item" class -->
+            <!-- <a>要套用"pure-menu-link" class -->
+            <li class="pure-menu-item"><a class="pure-menu-link" href="index-flat-ui.html">首頁</a></li>
+            <li class="pure-menu-item"><a class="pure-menu-link" href="clock.html">時鐘</a></li>
+            <li class="pure-menu-item"><a class="pure-menu-link" href="photoAlbum.html">相簿</a></li>
+          </ul>
+          <!-- </div> -->
+        </li>         
+      </ul>
+    </nav>
+  </header>
+  <!-- 套用 pure-u-* -->
+  <section class="pure-u-1 pure-u-md-4-5">
+    <article>
+      <h2>日期計算</h2>
+      <!-- 套用 pure-form -->
+      <form class="pure-form pure-form-stacked" action="" method="">
+        <!-- 套用 pure-g -->
+        <div class="pure-g">
+        <!-- 套用 pure-u-* -->  
+        <div class="pure-u-1 pure-u-md-1-3">
+          <label for="beginDate">開始日期</label>
+          <input type="date" id="beginDate" name="beginDate" />
+        </div>
+        <!-- 套用 pure-u-* -->
+        <div class="pure-u-1 pure-u-1-3">
+          <label for="endDate">結束日期</label>
+          <input type="date" id="endDate" name="endDate" />
+        </div>
+        <!-- 套用 pure-u-* -->
+        <div class="pure-u-1 pure-u-1-3">
+          <button type="button" id="diffBtn" name="diffBtn">相差</button>
+          <label for="diffBtn">(計算開始日期、結束日期一共相差幾年、幾月、幾日，並顯示於以下欄位)</label>
+        </div>
+        <!-- 套用 pure-u-* -->
+        <div class="pure-u-1 pure-u-1-3">
+          <input type="number" id="myYear" name="myYear" />
+          <label for="myYear">年</label>
+        </div>
+        <!-- 套用 pure-u-* -->
+        <div class="pure-u-1 pure-u-1-3">
+          <input type="number" id="myMonth" name="myMonth" />
+          <label for="myMonth">月</label>
+        </div>
+        <!-- 套用 pure-u-* -->
+        <div class="pure-u-1 pure-u-1-3">
+          <input type="number" id="myDay" name="myDay" />
+          <label for="myDay">天</label>
+        </div>
+        <!-- 套用 pure-u-* -->
+        <div class="pure-u-1">
+          <button class="pure-button pure-button-primary" type="button" id="calcBtn" name="calcBtn">相加</button>
+          <label for="calcBtn">(以開始日期開始，加上年、月、日之數字後，推算出結束日期)</label>
+        </div>
+      </div>
+      </form>
+    </article>
+  </section>
+  <!-- 套用 pure-u-* -->
+  <aside class="pure-u-1 pure-u-md-1-5">
+    <!-- 自己多加一層<div>，並套用 pure-menu -->
+    <div class="pure-menu">
+      <!-- 套用 pure-menu-list -->
+      <ul class="pure-menu-list">
+        <!-- <li>套用 pure-menu-item -->
+        <!-- <a>套用 pure-menu-link -->
+        <li class="pure-menu-item"><a class="pure-menu-link" href="index.html">首頁</a></li>
+        <li class="pure-menu-item"><a class="pure-menu-link" href="clock.html">時鐘</a></li>
+        <li class="pure-menu-item"><a class="pure-menu-link" href="photoAlbum.html">相簿</a></li>
+        <li class="pure-menu-item"><a class="pure-menu-link" href="dateCalc.html">日期計算</a></li>
+        <li class="pure-menu-item"><a class="pure-menu-link" href="fileForm.html">檔案上傳</a></li>
+        <li class="pure-menu-item"><a class="pure-menu-link" href="dbTable.html">資料查詢</a></li>
+      </ul>
+    </div>
+  </aside>
+  <!-- 套用 pure-u-* -->
+  <footer class="pure-u-1">
+    <div class="pure-g">
+      <img width="10%" src="https://wdaweb.github.io/index_assets/img/wda.png" />
+      <h5> 網頁課程 COPYRIGHT&#169;2024</h5>
+    </div>
+  </footer>
+</body>
+
+</html>

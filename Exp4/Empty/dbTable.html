@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>DB Management Page</title>
+  <!-- 引用 Flat UI (遵從Flat UI提供之Template.html) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Loading Bootstrap -->
+  <link href="dist/css/vendor/bootstrap.min.css" rel="stylesheet">
+  <!-- Loading Flat UI Pro -->
+  <link href="dist/css/flat-ui.css" rel="stylesheet">
+  <!-- 考慮效能，可將上一行換成下一行的版本 -->
+  <!--
+    <link href="dist/css/flat-ui.min.css" rel="stylesheet">
+    -->
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+   
+  <!-- Bootstrap 4 requires Popper.js -->
+  
+  <script src="https://unpkg.com/popper.js@1.14.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="http://vjs.zencdn.net/6.6.3/video.js"></script>
+ 
+  <!-- Flat UI JS -->
+   
+  <script src="dist/scripts/flat-ui.js"></script>
+ 
+</head>
+
+<body class="container">
+  <header class="row">
+    <!-- <nav>要套用"navbar" class -->
+    <nav class="navbar navbar-inverse navbar-expand-md">
+      <!-- <ul>要套用"navbar-nav" class  -->
+      <ul class="navbar-nav">
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="clock.html">時鐘</a></li>
+        <li><a href="photoAlbum.html">相簿</a></li>
+        <li><a href="dateCalc.html">日期計算</a></li>
+        <li><a href="fileForm.html">檔案上傳</a></li>
+        <li><a href="dbTable.html">資料查詢</a></li>
+        <!-- 下面是 dropdown menu -->
+        <!-- <li>要套用"dropdown" class -->
+          <li class="dropdown">
+            <!-- <a>要再多套用"dropdown-toggle" class 以及增加data-bs-toggle屬性(連接至JS) -->
+            <a class="dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">Dropdown Menu</a>
+            <!-- 之前只用<div><a>請改成<ul><li>選單形式 -->
+            <!-- <div class="dropdown-content"> -->
+            <!-- <ul>要套用"dropdown-menu" class -->
+            <ul class="dropdown-menu">
+              <!-- <a>要套用"dropdown-item" class -->  
+              <li><a class="dropdown-item" href="index-flat-ui.html">首頁</a></li>
+              <li><a class="dropdown-item" href="clock.html">時鐘</a></li>
+              <li><a class="dropdown-item" href="photoAlbum.html">相簿</a></li>
+            </ul>
+            <!-- </div> -->
+          </li>
+      </ul>
+    </nav>
+  </header>
+  <div class="row">
+    <section class="col-12 col-md-9">
+      <div class="contailer-fluid">
+        <div class="row">
+          <article class="col-12">
+            <h2>新增資料</h2>
+            <form action="" method="">
+              <label for="addName">姓名</label>
+              <!-- <input>套用"form-control flat"可讓border消失 -->
+              <input class="form-control" type="text" id="addName" name="addName" />
+              <label for="addBirth">生日</label>
+              <!-- <input>套用"form-control flat"可讓border消失 -->
+              <input class="form-control" type="date" id="addBirth" name="addBirth" />
+              <label for="addPhone">電話</label>
+              <!-- <input>套用"form-control flat"可讓border消失 -->
+              <input class="form-control" type="text" id="addPhone" name="addPhone" />
+              <!-- <button>套用"btn ..."可美化按鈕 -->
+              <!-- 套用"btn-wide"可增加按鈕的寬度 -->
+              <button class="btn btn-primary" type="submit">新增</button>
+            </form>
+          </article>
+          <article class="col-12">
+            <h2>資料查詢</h2>
+            <!-- <button>套用"btn ..."可美化按鈕 -->
+            <!-- 套用"btn-wide"可增加按鈕的寬度 -->
+            <button class="btn btn-primary" type="button" id="getTable" name="getTable">取得列表</button>
+            <table class="table table-striped">
+              <tbody>
+                <tr>
+                  <th>姓名</th>
+                  <th>生日</th>
+                  <th>電話</th>
+                  <th>執行動作</th>
+                </tr>
+                <tr>
+                  <td>john@wda.org.tw</td>
+                  <td>1999/1/1</td>
+                  <td>0923-123-222</td>
+                  <!-- <button>套用"btn ..."可美化按鈕 -->
+                  <td><button class="btn btn-primary" type="button" id="delBtn" name="delBtn">刪除</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>amy@wda.org.tw</td>
+                  <td>1989/5/10</td>
+                  <td>0983-563-365</td>
+                  <!-- <button>套用"btn ..."可美化按鈕 -->
+                  <td><button class="btn btn-primary" type="button" id="delBtn" name="delBtn">刪除</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>lee@wda.org.tw</td>
+                  <td>2000/10/11</td>
+                  <td>0915-131-223</td>
+                  <!-- <button>套用"btn ..."可美化按鈕 -->
+                  <td><button class="btn btn-primary" type="button" id="delBtn" name="delBtn">刪除</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+      </div>
+    </section>
+    <aside class="col-12 col-md-3">
+      <div class="navbar">
+        <!-- 多套用"flex-column"可強制轉成vertical menu bar -->
+        <ul class="navbar-nav flex-column">
+          <li><a href="index.html">首頁</a></li>
+          <li><a href="clock.html">時鐘</a></li>
+          <li><a href="photoAlbum.html">相簿</a></li>
+          <li><a href="dateCalc.html">日期計算</a></li>
+          <li><a href="fileForm.html">檔案上傳</a></li>
+          <li><a href="dbTable.html">資料查詢</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="row">
+    <div class="d-flex align-items-center">
+      <img width="5%" src="https://wdaweb.github.io/index_assets/img/wda.png" />
+      <h6> 網頁課程 COPYRIGHT&#169;2024</h6>
+    </div>
+  </footer>
+</body>
+
+</html>
