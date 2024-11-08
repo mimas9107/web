@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>My Default Page</title>
+  <!-- CSS設定 -->
+  <link href="myStyle.css" rel="stylesheet" type="text/css">
+  <!-- RWD配合之CSS設定，若要啟用RWD則將上面一行註解，改成下面任一行 -->
+  <link href="pcRWD.css" rel="stylesheet" type="text/css">
+  <!-- 若要啟用RDW則啟用下一行 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- External JS -->
+  <script src="myFirstJS.js"></script>
+  <!-- Internal JS -->
+  
+  <script> 
+    // JS程式碼
+    
+    
+    // array
+    let longArray=[];
+    longArray[100]=1;
+    console.log(longArray.length);
+
+    // array loop
+    // for-each
+    let numbers=[1,2,3,4];
+    let txt ="";
+    numbers.forEach(function myfunc(value, index, array){txt+=value+"|";});
+    console.log(txt);
+
+    // for-of loop
+    let cars = ["BMW", "Volvo", "Mini"];
+    let text2 = "";
+    for(let x of cars) {
+      text2 += x+"/";
+    }
+    console.log(text2);
+
+    // for-in loop
+    let aperson = { fname:"John", lname:"Doe", age:25 };
+    let text = "";
+    for (let x in aperson) {
+      text += aperson[x]+"|";
+    }
+    console.log(text);
+
+
+
+  </script>
+ 
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="clock.html">時鐘</a></li>
+        <li><a href="photoAlbum.html">相簿</a></li>
+        <li><a href="dateCalc.html">日期計算</a></li>
+        <li><a href="fileForm.html">檔案上傳</a></li>
+        <li><a href="dbTable.html">資料查詢</a></li>
+        <!-- 下面是 dropdown menu -->
+        <li class="dropdown"><a href="javascript:void(0)">Dropdown Menu</a>
+          <div class="dropdown-content">
+            <a href="index.html">首頁</a>
+            <a href="clock.html">時鐘</a>
+            <a href="photoAlbum.html">相簿</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <section>
+    <article>
+      <h2>DOM Event Example</h2>
+      <!-- 請放入 DOM Event Example-->
+      <select onchange="myFunction('select')">
+        <option value="100">100</option>
+        <option value="200">200</option>
+        <option value="300">300</option>
+        <option value="400">400</option>
+      </select>
+      <button onclick="myFunction('button')">Click me</button>
+      <input type="text" onfocus="myFunction('input-focus')">
+      <input type="text" onblur="myFunction('input-blur')">
+      
+      <script>
+        function myFunction(src) {
+          console.log(src+"'s event is triggered.");
+        }
+      </script>
+    </article>
+    <article>
+      <h2>Storage Example</h2>
+      <!-- 請放入 Web Storage API 的示範 -->
+      <p id="demo_ls"></p>
+      <script>
+        localStorage.setItem("name","leech@local");
+        document.getElementById("demo_ls").innerHTML = localStorage.getItem("name");
+        localStorage.setItem("name2","leech2@local");
+        document.getElementById("demo_ls").innerHTML = localStorage.getItem("name2");
+      </script>
+      <p id="demo_ss"></p>
+      <script>
+        sessionStorage.setItem("name","leech@session");
+        document.getElementById("demo_ss").innerHTML = sessionStorage.getItem("name");
+      </script>
+     
+
+    </article>
+    <article>
+      <h2>Geolocation Example</h2>
+      <!-- 請放入 Web Geolocation API 的示範 -->
+      <button onclick="getLocation()">Get Geolocation</button>
+      <p id="demo_gl"></p>
+      
+      <script>
+      const x = document.getElementById("demo_gl");
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else { 
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+      function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude +", Longitude: " + position.coords.longitude;
+      }
+      </script>
+     
+
+    </article>
+    <article>
+      <h2>Workers Example</h2>
+      <!-- 請放入 Web Workers API 的示範 -->
+      <p>Count numbers: <output id="result"></output></p>
+      <button onclick="startWorker()">Start Worker</button>
+      <button onclick="stopWorker()">Stop Worker</button>
+      
+      <script>
+      let w;
+      function startWorker() {
+        if (typeof(w) == "undefined") {
+          w = new Worker("demo_workers.js"); // 這邊會去抓外部的 javascript進來執行, 計數器工人
+
+      }
+      w.onmessage = function(event) {
+        document.getElementById("result").innerHTML = event.data;
+      };
+      }
+      function stopWorker() {
+        w.terminate();
+        w = undefined;
+      }
+      </script>
+     
+
+    </article>
+  </section>
+  <aside>
+    <ul>
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="clock.html">時鐘</a></li>
+      <li><a href="photoAlbum.html">相簿</a></li>
+      <li><a href="dateCalc.html">日期計算</a></li>
+      <li><a href="fileForm.html">檔案上傳</a></li>
+      <li><a href="dbTable.html">資料查詢</a></li>
+    </ul>
+  </aside>
+  <footer>
+    <img width="200px" src="https://wdaweb.github.io/index_assets/img/wda.png" />
+    <h1> 網頁課程 COPYRIGHT&#169;2024</h1>
+  </footer>
+</body>
+
+</html>
