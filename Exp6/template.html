@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>My Default Page</title>
+  <!-- CSS設定 -->
+  <link href="myStyle.css" rel="stylesheet" type="text/css">
+  <!-- RWD配合之CSS設定，若要啟用RWD則將上面一行註解，改成下面任一行 -->
+  <link href="pcRWD.css" rel="stylesheet" type="text/css">
+  <!-- 若要啟用RDW則啟用下一行 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--自行下載jQuery並放置於伺服器之上-->
+  <!-- <script src="jquery-3.7.1.min.js"></script> -->
+
+  <!--以CDN方式使用jQuery-->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!--其他來源：Google or Microsoft -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>   -->
+  <!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script> -->
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="clock.html">時鐘</a></li>
+        <li><a href="photoAlbum.html">相簿</a></li>
+        <li><a href="dateCalc.html">日期計算</a></li>
+        <li><a href="fileForm.html">檔案上傳</a></li>
+        <li><a href="dbTable.html">資料查詢</a></li>
+        <!-- 下面是 dropdown menu -->
+        <li class="dropdown"><a href="javascript:void(0)">Dropdown Menu</a>
+          <div class="dropdown-content">
+            <a href="index.html">首頁</a>
+            <a href="clock.html">時鐘</a>
+            <a href="photoAlbum.html">相簿</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <section>
+    <article>
+
+    </article>
+  </section>
+  <aside>
+    <ul>
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="clock.html">時鐘</a></li>
+      <li><a href="photoAlbum.html">相簿</a></li>
+      <li><a href="dateCalc.html">日期計算</a></li>
+      <li><a href="fileForm.html">檔案上傳</a></li>
+      <li><a href="dbTable.html">資料查詢</a></li>
+    </ul>
+  </aside>
+  <footer>
+    <img width="200px" src="https://wdaweb.github.io/index_assets/img/wda.png" />
+    <h1> 網頁課程 COPYRIGHT&#169;2024</h1>
+  </footer>
+</body>
+
+</html>
