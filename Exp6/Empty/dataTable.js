@@ -164,6 +164,7 @@ let myData = [
 $(document).ready(function () {
     // 刪除Row的function
     function delRow(e) {
+        $(e.target).closest("tr").remove();
 
     };
 
@@ -173,14 +174,32 @@ $(document).ready(function () {
     // 新增按鈕的事件
     $("#addBtn").click(function () {
         //console.log("addBtn");
-
+        let dateFormat=new Date($('#addBirth').val());
+        let newRow = '<tr><td>' + $('#addName').val() + '</td>' +
+           '<td>'+dateFormat.toLocaleDateString('en-ZA')+ '</td>' +
+           '<td>'+$('#addPhone').val() +'</td>'+
+           '<td><button type="button" class="delBtn" name="delBtn">刪除</button></td>'+
+           '</tr>';
         // 新增Row
-
+        $("#myTable tr:last").after(newRow);
+        $(".delBtn").click(delRow);
         // 同步新增至jQuery DataTables
 
+        myData.push([$("#addName").val()," "," ",$("#addPhone").val(), dateFormat.toLocaleDateString('en-CA'),"$0"]);
+        myTable.clear().rows.add(myData).draw();
     });
-
     // jQuery DataTables
+    let myTable=new DataTable('#example',{
+        columns:[
+            {title:'Name'},
+            {title:'Position'},
+            {title:'Office'},
+            {title:'Extn'},
+            {title:'Start date'},
+            {title:'Salary'}
+        ],
+        data: myData
+    });
 
 });
 

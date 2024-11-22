@@ -21,30 +21,36 @@
   <style type="text/css">
     .carousel-group {
       /*Prevent images from wrapping*/
-
+      overflow: hidden;
+      white-space: nowrap;
       /*Allow children to be positioned relatively*/
-
+      position: relative;
     }
 
     .slides {
       /*Make images inline with each other*/
-
+      display: inline-block;
       /*Make the image container to the screen width */
-
+      width: 100vw;
       /*Make the image cover the the screen and center it*/
-
+      background-position: center;
+      background-size: cover;
     }
 
     .arrow {
-
+      width:10%;
+      position: absolute;
+      top:50%;
+      transform:translateY(-50%);
+      cursor: pointer;
     }
 
     #right-arrow {
-
+      right:20px;
     }
 
     #left-arrow {
-
+      left:20px;
     }
   </style>
   <script src="carousel.js"></script>
@@ -68,27 +74,28 @@
       <!-- 輪播照片的群組 -->
       <div class="carousel-group">
         <!-- 此為左右控制的icons -->
-
+        <img src="img/arrow_left.svg" alt="Left Carousel Arrow" class="arrow" id="left-arrow">
+        <img src="img/arrow_right.svg" alt="Right Carousel Arrow" class="arrow" id="right=arrow">
         <!-- 每一張image以<div>作為單位存放 -->
         <div class="slides" id="slide1">
-          <img
-            src="https://ws.wda.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvMzA4L2NrZmlsZS9iYTlhMGViZS05YjhkLTQ5OGMtYjlhYS1iNjUxYjYzN2ExODIuanBn&n=dGFpbG9nby5KUEc%3d&icon=.JPG" />
+          <img width="640" 
+            src="https://i.imgur.com/WPKV1xC.jpg" />
         </div>
         <div class="slides" id="slide2">
-          <img
-            src="https://ws.wda.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvMzA4L2NrZmlsZS9kYzYyMDA1Zi1kMWU3LTQxMzAtYTI0OS0xZDU1N2Y4NWRkNDYuanBn&n=d3Vsb2dvLmpwZw%3d%3d&icon=.jpg" />
+          <img width="640" 
+            src="https://memeprod.sgp1.digitaloceanspaces.com/user-wtf/1633523164068.jpg" />
         </div>
         <div class="slides" id="slide3">
-          <img
-            src="https://ws.wda.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvMzA4L2NrZmlsZS9jODJhYWU2Ni00N2NlLTRjYzgtODIwYS0yNTEyODcyZjE1OGIuanBn&n=KOacgOaWsC3ljp%2fnqL8p5Z%2b66ZqG5aC05aSn6ZaA54WnLmpwZw%3d%3d&icon=.jpg" />
+          <img width="640" 
+            src="https://i.imgur.com/UsblsnY.jpg" />
         </div>
         <div class="slides" id="slide4">
-          <img
-            src="https://ws.wda.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvMzA4L2NrZmlsZS80MzUwYTZiNy0xYjk5LTRhNGQtYjIzMy01NTExMTc5ZmQwYWIuanBn&n=5a6c6Jit6KiT57e05aC05aSn6ZaALmpwZw%3d%3d&icon=.jpg" />
+          <img width="640" 
+            src="https://live.staticflickr.com/7144/6749200705_8b7f58c79b_c.jpg" />
         </div>
         <div class="slides" id="slide5">
-          <img
-            src="https://ws.wda.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvMzA4L2NrZmlsZS9mOTU3NjM0MC0wMGFlLTRhMzAtYjJlZC1hOGVkMTE0MzQyY2QuanBn&n=UDUyOTQ4OTIuanBn&icon=.jpg" />
+          <img width="640" 
+            src="https://live.staticflickr.com/7050/6797578380_75dc7411cd_c.jpg" />
         </div>
       </div>
     </article>

@@ -37,7 +37,7 @@
         <label for="endDate">結束日期</label>
         <input type="date" id="endDate" name="endDate" /> <br />
         <!-- 請幫Button增加onclick event-handler-->
-        <button onclick="dateDiff()" type="button" id="diffBtn" name="diffBtn">相差</button>
+        <button onclick="dateDiff()" type="button" id="diffBtn" name="diffBtn" onclick="dateDiff">相差</button>
         <label for="diffBtn">(計算開始日期、結束日期一共相差幾年、幾月、幾日，並顯示於以下欄位)</label> <br />
         
         <input type="number" id="myYear" name="myYear" /> 
@@ -47,9 +47,14 @@
         <input type="number" id="myDay" name="myDay" />
         <label for="myDay">天</label> <br />
         <!-- 請幫Button增加onclick event-handler-->
-        <button onclick="dateCalc()" type="button" id="calcBtn" name="calcBtn">相加</button>
+        <button onclick="dateCalc()" type="button" id="calcBtn" name="calcBtn" onclick="dateCalc">相加</button>
         <label for="calcBtn">(以開始日期開始，加上年、月、日之數字後，推算出結束日期)</label> <br />
       </form>  
+    </article>
+
+    <article>
+      <button type="button" onclick="addElement()"> add Element</button>
+      <div id="newArea">123</div>
     </article>
   </section>
   <aside>
