@@ -1,0 +1,86 @@
+/* 以 PC 版面為預設Layout，對應 width 1440px 以上 */
+/* 以 HTML 5 標準配置Layout */
+section {
+  float: left;
+  width: 80%;
+}
+
+article {
+  float: left;
+  width: 45%;
+  height: 70vh;
+  /* box */
+  border-style: dashed;
+  padding: 0 5px;
+  /* others */
+  overflow: auto;
+}
+
+aside {
+  float: right;
+  width: 20%;
+}
+   
+/* 1440px 以下開始為筆電  */
+@media screen and (max-width : 1440px ) {
+  section {
+    float: left;
+    width: 80%;
+  }
+
+  aside {
+    float: right;
+    width: 20%;
+  }
+
+  article {
+    width: 45%;
+  }
+}
+   
+/* 1024px 以下開始為平板 ( ex: iPad Pro )  */
+@media screen and (max-width : 1024px ) {
+  section {
+    float: left;
+    width: 80%;
+  }
+
+  aside {
+    float: right;
+    width: 20%;
+  }
+
+  article {
+    width: 98%;
+  }     
+}
+   
+/* 768px 以下開始為 小平板 & 手機(橫)  */
+@media screen and (max-width : 768px ) {
+  section {
+    float: left;
+    width: 100%;
+  }
+
+  aside {
+    float: left;
+    width: 100%;
+  }
+
+  article
+  {
+    width: 98%;
+  }
+}
+   
+/* 576px 以下開始為 手機(直)  */
+@media screen and (max-width : 576px ) {
+
+}
+
+/* 320px 以下開始為 手機(直) 最小尺寸 */
+@media screen and (max-width : 320px ) {
+
+}
+   
+/* 以下自訂義特殊區塊 - 通常不會用到*/

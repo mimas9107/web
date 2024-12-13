@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>My Default Page</title>
+  <!-- Vue.js from CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <!-- Vue.JS Style -->
+  <style>
+    .myColor {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav></nav>
+  </header>
+  <section>
+    <article>
+      <!-- Vue.JS元件插入HTML之處 -->
+      <div id="vueApp">
+        <h1 v-bind:class="colorClass">Hi~{{ name }}. Your First Vue.JS webpage.</h1>
+      </div>
+      <!-- Vue.JS主程式碼 -->
+      <script>
+        const { createApp, ref } = Vue;
+
+        createApp({
+          setup() {
+            // 以ref()產生渲染(Rendering)資料所需的變數
+            const name = ref('John');
+            const colorClass = ref('myColor');
+            // 因應相關動作設定的function
+
+            // 必須回傳才可以用於渲染(Rendering)動作，包含：變數與Function
+            return {
+              name,
+              colorClass,
+            };
+          },
+        }).mount("#vueApp");
+      </script>
+    </article>
+  </section>
+  <aside></aside>
+  <footer></footer>
+</body>
+
+</html>
