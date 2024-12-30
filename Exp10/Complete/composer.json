@@ -1,0 +1,10 @@
+{
+    "name": "nesl/my_php",
+    "type": "project",
+    "autoload": {
+        "files": [
+            "load-config.php"
+        ]
+    },
+    "require": {}
+}

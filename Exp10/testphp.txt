@@ -1,0 +1,2 @@
+Hello PHP open file write something.
+php is fun fun fun
