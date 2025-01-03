@@ -1,1 +1,1 @@
-{"title":"Default Page:","template":"bootstrap"}
+{"title":"這是中文抬頭","template":"bootstrap"}

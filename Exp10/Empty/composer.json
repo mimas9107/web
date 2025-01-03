@@ -1,0 +1,9 @@
+{
+    "name": "root/app",
+    "autoload": {
+        "files": [
+            "myfunc.inc.php"
+        ]
+    },
+    "require": {}
+}
