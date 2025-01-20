@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users 操作 - XMLHttpRequest AJAX 範例</title>
+</head>
+
+<body>
+    <h1>Users 操作範例</h1>
+
+    <!-- 新增 User -->
+    <h2>新增 User</h2>
+    <form id="addUserForm">
+        <label for="user_id">ID:</label>
+        <input type="number" id="user_id" name="user_id" required>
+        <br>
+        <label for="name">姓名:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="email">電子郵件:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="age">年齡:</label>
+        <input type="number" id="age" name="age" required>
+        <br>
+        <button type="submit">新增</button>
+    </form>
+    <div id="addUserResult"></div>
+
+    <!-- 查詢 Users -->
+    <h2>查詢 Users</h2>
+    <form id="queryUsersForm">
+        <label for="search">搜尋姓名（部分匹配）:</label>
+        <input type="text" id="search" name="search">
+        <br>
+        <button type="submit">查詢</button>
+    </form>
+    <div id="queryUsersResult"></div>
+
+    <!-- 刪除 User -->
+    <h2>刪除 User</h2>
+    <form id="deleteUserForm">
+        <label for="user_id">User ID:</label>
+        <input type="number" id="user_id" name="user_id" required>
+        <br>
+        <button type="submit">刪除</button>
+    </form>
+    <div id="deleteUserResult"></div>
+
+    <script>
+        // Helper function to send XMLHttpRequest
+        function sendRequest(method, url, data, callback) {
+            const xhr = new XMLHttpRequest();
+            xhr.open(method, url, true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    callback(xhr.responseText);
+                }
+            };
+            xhr.send(data);
+        }
+
+        // 新增 User
+        document.getElementById('addUserForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const age = document.getElementById('age').value;
+            const data = `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&age=${encodeURIComponent(age)}`;
+            sendRequest('POST', 'users_add.php', data, function (response) {
+                document.getElementById('addUserResult').innerHTML = response;
+            });
+        });
+
+        // 查詢 Users
+        document.getElementById('queryUsersForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const search = document.getElementById('search').value;
+            const data = `search=${encodeURIComponent(search)}`;
+            sendRequest('GET', `users_query.php?${data}`, null, function (response) {
+                document.getElementById('queryUsersResult').innerHTML = response;
+            });
+        });
+
+        // 刪除 User
+        document.getElementById('deleteUserForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const userId = document.getElementById('user_id').value;
+            const data = `user_id=${encodeURIComponent(userId)}`;
+            sendRequest('POST', 'users_del.php', data, function (response) {
+                document.getElementById('deleteUserResult').innerHTML = response;
+            });
+        });
+    </script>
+</body>
+
+</html>

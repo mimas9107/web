@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users 操作範例</title>
+</head>
+
+<body>
+    <h1>Users 操作範例</h1>
+
+    <!-- 新增 User 表單 -->
+    <h2>Users 新增</h2>
+    <form action="users_add.php" method="POST">
+        <label for="user_id">ID:</label>
+        <input type="number" id="user_id" name="user_id" required>
+        <br>
+        <label for="name">姓名:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="email">電子郵件:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="age">年齡:</label>
+        <input type="number" id="age" name="age" required>
+        <br>
+        <button type="submit">新增</button>
+    </form>
+
+    <!-- 查詢 Users 表單 -->
+    <h2>Users 查詢</h2>
+    <form action="users_query.php" method="GET">
+        <label for="search">搜尋姓名（部分匹配）:</label>
+        <input type="text" id="search" name="search">
+        <br>
+        <button type="submit">查詢</button>
+    </form>
+
+    <!-- 刪除 User 表單 -->
+    <h2>Users 刪除</h2>
+    <form action="users_del.php" method="POST">
+        <label for="user_id">User ID:</label>
+        <input type="number" id="user_id" name="user_id" required>
+        <br>
+        <button type="submit">刪除</button>
+    </form>
+</body>
+
+</html>

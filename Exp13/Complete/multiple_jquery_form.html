@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多檔案上傳</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h1>多檔案上傳</h1>
+    <form id="multiple-upload-form">
+        <input type="file" id="multiple-files" name="files[]" multiple required>
+        <button type="submit">上傳檔案</button>
+    </form>
+
+    <script>
+        $(document).ready(function () {
+            $('#multiple-upload-form').submit(function (event) {
+                event.preventDefault();
+                const formData = new FormData();
+                const files = $('#multiple-files')[0].files;
+
+                for (let i = 0; i < files.length; i++) {
+                    formData.append('files[]', files[i]);
+                }
+
+                $.ajax({
+                    url: 'multiple_upload.php',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        alert(response);
+                    },
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

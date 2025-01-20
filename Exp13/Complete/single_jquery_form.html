@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>單檔案上傳</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h1>單檔案上傳</h1>
+    <form id="single-upload-form">
+        <input type="file" id="single-file" name="file" required>
+        <button type="submit">上傳檔案</button>
+    </form>
+
+    <script>
+        $(document).ready(function () {
+            $('#single-upload-form').submit(function (event) {
+                event.preventDefault();
+                const formData = new FormData();
+                formData.append('file', $('#single-file')[0].files[0]);
+
+                $.ajax({
+                    url: 'single_upload.php',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        alert(response);
+                    },
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
