@@ -1,0 +1,40 @@
+# 使用 Ubuntu 22.04 作為基礎映像檔
+FROM ubuntu:22.04
+
+# 設定非互動模式，避免安裝過程中產生互動提示
+ENV DEBIAN_FRONTEND=noninteractive
+
+# 更新系統並安裝 Apache、MariaDB、PHP 及相關模組、wget、unzip 與 Supervisor
+RUN apt-get update && \
+    apt-get install -y apache2 mariadb-server php php-mysql php-xml php-json php-curl php-mbstring wget unzip supervisor libapache2-mod-php && \
+    rm -rf /var/lib/apt/lists/*
+
+# 切換工作目錄至 /tmp 以進行檔案下載與解壓
+WORKDIR /tmp
+
+# 下載 Joomla 最新穩定版安裝包並解壓縮至 /var/www/html
+RUN wget https://downloads.joomla.org/cms/joomla5/5-2-3/Joomla_5-2-3-Stable-Full_Package.zip && \
+    mkdir joomla && \
+    mv Joomla_5-2-3-Stable-Full_Package.zip joomla && \
+    cd joomla && \
+    unzip Joomla_5-2-3-Stable-Full_Package.zip && \
+    rm Joomla_5-2-3-Stable-Full_Package.zip && \
+    cd .. && \
+    mv joomla /var/www/html/ && \
+    chown -R www-data:www-data /var/www/html/joomla && \
+    chmod -R 755 /var/www/html/joomla
+
+# 複製 Supervisor 配置檔至容器內 /etc/supervisor/conf.d/
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# 複製容器啟動腳本 entrypoint.sh 到容器根目錄
+COPY entrypoint.sh /entrypoint.sh
+
+# 確保 entrypoint.sh 採用 Unix 換行格式，並賦予執行權限
+RUN chmod +x /entrypoint.sh
+
+# 開放 HTTP 服務埠號 80
+EXPOSE 80
+
+# 設定容器啟動點，明確使用 /bin/bash 執行 entrypoint.sh
+ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]

@@ -1,0 +1,31 @@
+# 使用 Ubuntu 22.04 作為基礎映像檔
+FROM ubuntu:22.04
+
+# 設定非互動模式，避免安裝過程中產生互動提示
+ENV DEBIAN_FRONTEND=noninteractive
+
+# 更新系統套件，並安裝 Apache、MariaDB、PHP 及相關模組、wget、unzip 與 Supervisor
+RUN apt-get update && \
+    apt-get install -y apache2 mariadb-server php php-mysql php-xml php-json php-curl php-mbstring wget unzip supervisor libapache2-mod-php && \
+    rm -rf /var/lib/apt/lists/*
+
+# 下載最新版本的 WordPress 並解壓縮至 /var/www/html/wordpress 目錄
+WORKDIR /tmp
+RUN wget https://wordpress.org/latest.tar.gz -O latest.tar.gz && \
+    tar -zxvf latest.tar.gz -C /var/www/html/ && \
+    rm latest.tar.gz && \
+    chown -R www-data:www-data /var/www/html/wordpress && \
+    chmod -R 755 /var/www/html/wordpress
+
+# 複製 Supervisor 配置檔至容器內指定位置
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# 複製容器啟動腳本並賦予執行權限
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# 開放 HTTP 服務埠號 80
+EXPOSE 80
+
+# 設定容器啟動點，透過 /bin/bash 執行 entrypoint.sh
+ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
