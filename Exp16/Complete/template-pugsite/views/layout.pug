@@ -1,0 +1,16 @@
+doctype html
+html
+  include head
+  body
+    include header
+    include nav
+    .container
+      if config.aside_position === "left"
+        aside
+          include aside
+      section
+        block articles
+      if config.aside_position === "right"
+        aside
+          include aside
+    include footer

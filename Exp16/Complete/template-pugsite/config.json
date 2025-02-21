@@ -1,0 +1,7 @@
+{
+    "css_framework": "bootstrap",
+    "section_width": 70,
+    "aside_width": 30,
+    "columns": 2,
+    "aside_position": "right"
+  }
