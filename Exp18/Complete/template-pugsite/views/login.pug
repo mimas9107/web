@@ -1,0 +1,14 @@
+extends layout-nologin
+
+block signin
+  h2 Login
+  if message
+    p(class=messageType)= message
+  form(action="/auth/login" method="post")
+    label Username:
+    input(type="text" name="username" class="form-control" required)
+    label Password:
+    input(type="password" name="password" class="form-control" required)
+    button(type="submit" class="btn btn-primary") Login
+  p Don't have an account? 
+    a(href="/register") Register here

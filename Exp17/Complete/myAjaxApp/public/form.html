@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD 操作 - 使用者資料</title>
+  <!-- 參考之前template.html內的格式 -->
+  <style>
+    #message {
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>CRUD 操作 - 使用者資料</h1>
+
+  <!-- 參考之前template.html內把回覆訊息放到同一頁 -->
+  <!-- Result Message -->
+  <div id="message"></div>
+
+  <!-- 去除method、action，改成ajax處理 -->
+  <!-- <form method="POST" action="/users/create"> -->
+  <form id="createUser">
+    <h2>Create</h2>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username"><br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br><br>
+    <button type="submit">Create User</button>
+  </form>
+
+  <!-- 去除method、action，改成ajax處理 -->
+  <!-- <form method="GET" action="/users"> -->
+  <form id="getUser">
+    <h2>Read</h2>
+    <label for="userId">User ID:</label>
+    <input type="number" id="userId" name="id"><br><br>
+    <button type="submit">Get User</button>
+  </form>
+
+  <!-- 去除method、action，改成ajax處理 -->
+  <!-- <form method="POST" action="/users/update"> -->
+  <form id="updateUser">
+    <h2>Update</h2>
+    <label for="updateId">User ID:</label>
+    <input type="number" id="updateId" name="id"><br><br>
+    <label for="newUsername">New Username:</label>
+    <input type="text" id="newUsername" name="username"><br><br>
+    <label for="newEmail">New Email:</label>
+    <input type="email" id="newEmail" name="email"><br><br>
+    <label for="newPassword">New Password:</label>
+    <input type="password" id="newPassword" name="password"><br><br>
+    <button type="submit">Update User</button>
+  </form>
+
+  <!-- 去除method、action，改成ajax處理 -->
+  <!-- <form method="POST" action="/users/delete"> -->
+  <form id="deleteUser">
+    <h2>Delete</h2>
+    <label for="deleteId">User ID:</label>
+    <input type="number" id="deleteId" name="id"><br><br>
+    <button type="submit">Delete User</button>
+  </form>
+  <script>
+    // 用來發送 AJAX 請求的函數
+    function sendRequest(method, url, data, callback) {
+      const xhr = new XMLHttpRequest();
+      xhr.open(method, url, true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          callback(xhr.responseText);
+        }
+      };
+
+      // 格式化資料為 URL 編碼格式
+      let encodedData = '';
+      for (let key in data) {
+        if (data.hasOwnProperty(key)) {
+          encodedData += encodeURIComponent(key) + '=' + encodeURIComponent(data[key]) + '&';
+        }
+      }
+      // 移除最後一個多餘的 '&'
+      encodedData = encodedData.slice(0, -1);
+
+      xhr.send(encodedData);
+    }
+
+    // 顯示訊息
+    function displayMessage(message, type) {
+      const messageDiv = document.getElementById('message');
+      messageDiv.innerHTML = message;
+      if (type === 'success') {
+        messageDiv.className = 'success';
+      } else {
+        messageDiv.className = 'error';
+      }
+    }
+
+    document.getElementById('createUser').addEventListener('submit', function (e) {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      const data = {
+        username: username,
+        email: email,
+        password: password
+      };
+
+      sendRequest('POST', '/users/create', data, function (response) {
+        const responseData = JSON.parse(response);
+        displayMessage(responseData.message, responseData.type);
+      });
+    });
+
+    document.getElementById('getUser').addEventListener('submit', function (e) {
+      event.preventDefault();
+      const id = document.getElementById('userId').value;
+
+      sendRequest('GET', '/users?id=' + id, {}, function (response) {
+        const responseData = JSON.parse(response);
+        displayMessage(responseData.message, responseData.type);
+      });
+    });
+
+    document.getElementById('updateUser').addEventListener('submit', function (e) {
+      event.preventDefault();
+      const id = document.getElementById('updateId').value;
+      const username = document.getElementById('newUsername').value;
+      const email = document.getElementById('newEmail').value;
+      const password = document.getElementById('newPassword').value;
+
+      const data = {
+        id: id,
+        username: username,
+        email: email,
+        password: password
+      };
+
+      sendRequest('POST', '/users/update', data, function (response) {
+        const responseData = JSON.parse(response);
+        displayMessage(responseData.message, responseData.type);
+      });
+    });
+
+    document.getElementById('deleteUser').addEventListener('submit', function (e) {
+      event.preventDefault();
+      const id = document.getElementById('deleteId').value;
+
+      const data = { id: id };
+
+      sendRequest('POST', '/users/delete', data, function (response) {
+        const responseData = JSON.parse(response);
+        displayMessage(responseData.message, responseData.type);
+      });
+    });
+  </script>
+</body>
+
+</html>

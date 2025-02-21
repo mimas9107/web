@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Vue Site</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="https://unpkg.com/vue-router@4"></script>
+  <script src="https://unpkg.com/vue3-sfc-loader/dist/vue3-sfc-loader.js"></script>
+  <!-- 載入 Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- 載入 Flat UI CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/designmodo-flat-ui@2.3.0/dist/css/flat-ui.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/designmodo-flat-ui@2.3.0/dist/js/flat-ui.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    section {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    article {
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    aside {
+      padding: 10px;
+      background: #f4f4f4;
+    }
+    /* RWD 設定 */
+    @media (max-width: 576px) {
+      .container {
+        flex-direction: column;
+      }
+      section, aside {
+        width: 100% !important;
+      }
+    }
+    @media (max-width: 992px) and (min-width: 577px) {
+      section {
+        width: 75% !important;
+      }
+      aside {
+        width: 25% !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script>
+    const { loadModule } = window["vue3-sfc-loader"];
+    // 確保 vue3-sfc-loader 存在
+    if (typeof window["vue3-sfc-loader"] === 'undefined') {
+      console.error('vue3SfcLoader 未正確載入');
+    } else {
+      console.log('vue3SfcLoader 載入成功');
+    }
+
+    // 設定 vue3-sfc-loader
+    window.loaderOptions = {
+      moduleCache: { vue: Vue },
+      async getFile(url) {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(res.statusText + ' ' + url);
+        return await res.text();
+      },
+      addStyle(textContent) {
+        const style = document.createElement('style');
+        style.textContent = textContent;
+        document.head.appendChild(style);
+      },
+      log(type, ...args) {
+        console[type](...args);
+      }
+    };
+
+    // 透過 XMLHttpRequest 讀取 config 設定
+    function loadConfig(callback) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '/config', true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          if( xhr.status === 200 ) {
+            window.config = JSON.parse(xhr.responseText);
+            callback(window.config);
+          }
+          else {
+            console.error("無法讀取 config.json");
+          }
+        }
+      };
+      xhr.send();
+    }
+
+    // Vue 應用程式
+    loadConfig(config => {
+      const { createApp, ref } = Vue;
+      const { createRouter, createWebHistory } = VueRouter;
+
+      const routes = [
+        { path: '/', component: Vue.defineAsyncComponent(() => loadModule('/components/app.vue', window.loaderOptions)), meta: { requiresAuth: true } },
+        { path: '/login', component: Vue.defineAsyncComponent(() => loadModule('/components/login.vue', window.loaderOptions)) },
+        { path: '/register', component: Vue.defineAsyncComponent(() => loadModule('/components/register.vue', window.loaderOptions)) },
+        { path: '/nologin', component: Vue.defineAsyncComponent(() => loadModule('/components/nologin.vue', window.loaderOptions)) },
+        //
+        { path: '/productlist', component: Vue.defineAsyncComponent(() => loadModule('/components/ProductList.vue', window.loaderOptions)) },
+        { path: '/mycart', component: Vue.defineAsyncComponent(() => loadModule('/components/Cart.vue', window.loaderOptions)) },
+        { path: '/checkout', component: Vue.defineAsyncComponent(() => loadModule('/components/Checkout.vue', window.loaderOptions)) }
+      ];
+
+      const router = createRouter({
+        history: createWebHistory(),
+        routes
+      });
+
+      // 🔹 修正 `beforeEach()`，確保正確處理未登入狀態
+      router.beforeEach(async (to, from, next) => {
+        if (to.meta.requiresAuth) {
+          try {
+            const response = await fetch('/auth/status');
+            const data = await response.json();
+            if (!data.loggedIn) {
+              return next('/nologin');  // 未登入時轉向 `/nologin`
+            }
+          } catch (error) {
+            console.error("無法檢查登入狀態", error);
+            return next('/nologin');
+          }
+        }
+        return next();
+      });
+
+      loadModule('/components/app.vue', window.loaderOptions)
+        .then(AppComponent => {
+          const app = createApp(AppComponent);
+          app.use(router);
+          app.mount('#app');
+        })
+        .catch(err => {
+          console.error('Error loading App component:', err);
+        });
+    });
+  </script>
+</body>
+</html>

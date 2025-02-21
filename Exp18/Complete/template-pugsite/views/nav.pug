@@ -1,0 +1,28 @@
+- var cssFramework = config.css_framework || "bootstrap";
+
+if cssFramework === "bootstrap"
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    .container-fluid
+      a.navbar-brand(href='/') MyApp
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav')
+        span.navbar-toggler-icon
+      #navbarNav.collapse.navbar-collapse
+        ul.navbar-nav.me-auto
+          li.nav-item
+            a.nav-link(href='/') Index
+          li.nav-item
+            a.nav-link(href='/function1') Function 1
+        ul.navbar-nav.ms-auto
+          li.nav-item
+            a.nav-link(href='/auth/logout') Logout
+
+else if cssFramework === "flatui"
+  nav.navbar
+    .container
+      ul.nav.nav-pills
+        li
+          a(href='/') Index
+        li
+          a(href='/function1') Function 1
+        li(style="float: right;")
+          a(href='/auth/logout') Logout
