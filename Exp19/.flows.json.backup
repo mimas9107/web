@@ -1,0 +1,1081 @@
+[
+    {
+        "id": "1b0f053505a5bb42",
+        "type": "tab",
+        "label": "流程1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ea053511ff9fc72d",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "708a2041f70166c9",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "df3151f712512caf",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "ea053511ff9fc72d",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "beb09363e0e7a10e",
+        "type": "ui_group",
+        "name": "sned your value",
+        "tab": "af6303fbd1f21ca6",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "af6303fbd1f21ca6",
+        "type": "ui_tab",
+        "name": "Form",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "74666453d12133b1",
+        "type": "function",
+        "z": "1b0f053505a5bb42",
+        "name": "function 1",
+        "func": "msg.payload=\"jus\"+msg.pyload;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 200,
+        "wires": [
+            [
+                "8d6c978dad8b0610"
+            ]
+        ]
+    },
+    {
+        "id": "a4298d1776cfe046",
+        "type": "comment",
+        "z": "1b0f053505a5bb42",
+        "name": "Hello world",
+        "info": "Hello world! this is a comment.",
+        "x": 160,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "b0d7b783ec81735c",
+        "type": "inject",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "iso",
+        "payloadType": "date",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "74666453d12133b1"
+            ]
+        ]
+    },
+    {
+        "id": "8d6c978dad8b0610",
+        "type": "debug",
+        "z": "1b0f053505a5bb42",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "632ee56560ec6e30",
+        "type": "inject",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "getTime",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 320,
+        "wires": [
+            [
+                "8ece818e59ee0d8c"
+            ]
+        ]
+    },
+    {
+        "id": "8ece818e59ee0d8c",
+        "type": "function",
+        "z": "1b0f053505a5bb42",
+        "name": "function 2",
+        "func": "var date=new Date(msg.payload);\nmsg\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 320,
+        "wires": [
+            [
+                "de76dbcf50dde1b6"
+            ]
+        ]
+    },
+    {
+        "id": "de76dbcf50dde1b6",
+        "type": "debug",
+        "z": "1b0f053505a5bb42",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "800d29a31bb3b9be",
+        "type": "inject",
+        "z": "1b0f053505a5bb42",
+        "name": "200",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "200",
+        "payloadType": "num",
+        "x": 170,
+        "y": 540,
+        "wires": [
+            [
+                "3a89f128ffce486b"
+            ]
+        ]
+    },
+    {
+        "id": "469b7af26d1420a0",
+        "type": "inject",
+        "z": "1b0f053505a5bb42",
+        "name": "50",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "50",
+        "payloadType": "num",
+        "x": 170,
+        "y": 600,
+        "wires": [
+            [
+                "3a89f128ffce486b"
+            ]
+        ]
+    },
+    {
+        "id": "62cea43b3148373c",
+        "type": "inject",
+        "z": "1b0f053505a5bb42",
+        "name": "-20",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "-20",
+        "payloadType": "num",
+        "x": 170,
+        "y": 660,
+        "wires": [
+            [
+                "3a89f128ffce486b"
+            ]
+        ]
+    },
+    {
+        "id": "91c98e6fa8ff1468",
+        "type": "change",
+        "z": "1b0f053505a5bb42",
+        "name": "Set 0",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 540,
+        "wires": [
+            [
+                "ac27cbe18ba9f5cb"
+            ]
+        ]
+    },
+    {
+        "id": "3a89f128ffce486b",
+        "type": "switch",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "gt",
+                "v": "100",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 370,
+        "y": 600,
+        "wires": [
+            [
+                "91c98e6fa8ff1468"
+            ],
+            [
+                "88267b2691509f6a"
+            ],
+            [
+                "ac27cbe18ba9f5cb"
+            ]
+        ]
+    },
+    {
+        "id": "88267b2691509f6a",
+        "type": "change",
+        "z": "1b0f053505a5bb42",
+        "name": "Set 100",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "100",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 640,
+        "wires": [
+            [
+                "ac27cbe18ba9f5cb"
+            ]
+        ]
+    },
+    {
+        "id": "ac27cbe18ba9f5cb",
+        "type": "debug",
+        "z": "1b0f053505a5bb42",
+        "name": "msg payload",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "f381f83fa8e53753",
+        "type": "function",
+        "z": "1b0f053505a5bb42",
+        "name": "function GET index.html form",
+        "func": "msg.payload=`\n<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta charset=\"UTF-8\"> <title>Node-RED form</title></head>\n<body>\n<h1>Fill the Form</h1><form action=\"/form2\" method=\"POST\">\n<label>Name:</label>\n<input type=\"text\" name=\"name\" required><br><br>\n<label>Email:</label>\n<input type=\"email\" name=\"email\" required><br><br>\n<button type=\"submit\">Submit</button>\n\n</form>\n</body>\n</html>\n`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 860,
+        "wires": [
+            [
+                "fcd77edacc8ae58e"
+            ]
+        ]
+    },
+    {
+        "id": "9341757889aa7619",
+        "type": "function",
+        "z": "1b0f053505a5bb42",
+        "name": "function conduct the post /form ",
+        "func": "let webpage=`\n<!DOCTYPE html>\n<html lang=\"en\">\n<head> \n<meta charset=\"UTF-8\">\n<title>Form submitted!</title>\n</head>\n<body>\n<h1> Form Data Recieved!</h1>\n<p> <strong>Name: </strong> {{name}}</p>\n<p> <strong>Email:</strong> {{email}}</p>\n\n</body>\n</html>\n`;\n\nmsg.payload=webpage\n            .replace(\"{{name}}\",msg.payload.name)\n            .replace(\"{{email}}\",msg.payload.email);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 1000,
+        "wires": [
+            [
+                "befa3098a15a7617"
+            ]
+        ]
+    },
+    {
+        "id": "3ca38f59c0c2d94b",
+        "type": "http in",
+        "z": "1b0f053505a5bb42",
+        "name": "[GET] /index",
+        "url": "/index",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 860,
+        "wires": [
+            [
+                "f381f83fa8e53753"
+            ]
+        ]
+    },
+    {
+        "id": "37effec2320cd009",
+        "type": "http in",
+        "z": "1b0f053505a5bb42",
+        "name": "[POST] /form",
+        "url": "/form",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 1000,
+        "wires": [
+            [
+                "9341757889aa7619"
+            ]
+        ]
+    },
+    {
+        "id": "fcd77edacc8ae58e",
+        "type": "http response",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "text/html"
+        },
+        "x": 710,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "befa3098a15a7617",
+        "type": "http response",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "text/html"
+        },
+        "x": 710,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "c126cae50b19afe1",
+        "type": "http in",
+        "z": "1b0f053505a5bb42",
+        "name": "[POST] /form2",
+        "url": "/form2",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 1100,
+        "wires": [
+            [
+                "fbce681ee36ea9e7"
+            ]
+        ]
+    },
+    {
+        "id": "fbce681ee36ea9e7",
+        "type": "template",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html>\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Post something! to form2</title>\n</head>\n<body>\n    <h1>{{payload.name}}</h1>\n    <p>{{payload.email}}</p>\n</body>\n</html>\n",
+        "output": "str",
+        "x": 410,
+        "y": 1100,
+        "wires": [
+            [
+                "c8481579d788947d"
+            ]
+        ]
+    },
+    {
+        "id": "c8481579d788947d",
+        "type": "http response",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "text/html"
+        },
+        "x": 710,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "15bfe36386f76d17",
+        "type": "file in",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "filename": "/data/fileupload.html",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 460,
+        "y": 1240,
+        "wires": [
+            [
+                "5dc64423ed892ee3"
+            ]
+        ]
+    },
+    {
+        "id": "7db09c0f23b318e0",
+        "type": "http in",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "url": "/file",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 1240,
+        "wires": [
+            [
+                "15bfe36386f76d17"
+            ]
+        ]
+    },
+    {
+        "id": "5dc64423ed892ee3",
+        "type": "http response",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "text/html"
+        },
+        "x": 670,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "06f1657410ed08a7",
+        "type": "http in",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "url": "/upload",
+        "method": "post",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 1340,
+        "wires": [
+            [
+                "ffb98a2e9cfacb99"
+            ]
+        ]
+    },
+    {
+        "id": "69f464d4173533bc",
+        "type": "file",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "filename": "filename",
+        "filenameType": "msg",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 420,
+        "y": 1340,
+        "wires": [
+            [
+                "1cbea4f22158286c"
+            ]
+        ]
+    },
+    {
+        "id": "548332e01522b344",
+        "type": "http response",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "text/html"
+        },
+        "x": 670,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "ffb98a2e9cfacb99",
+        "type": "function",
+        "z": "1b0f053505a5bb42",
+        "name": "function 3",
+        "func": "let uploadDir='/data/uploads/';\nmsg.topic=msg.req.body.filename;\nmsg.filename=uploadDir+msg.topic;\nmsg.payload=msg.req.files[0].buffer.toString();\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 1420,
+        "wires": [
+            [
+                "69f464d4173533bc"
+            ]
+        ]
+    },
+    {
+        "id": "1cbea4f22158286c",
+        "type": "function",
+        "z": "1b0f053505a5bb42",
+        "name": "function 4",
+        "func": "msg.payload=`\n<!DOCTYPE html>\n <html lang=\"en\">\n <head>\n <meta charset=\"UTF-8\">\n <title>File Upload Successed!</title>\n </head>\n <body>\n <h1>Upload a File successfully!</h1>\n <p> Your file has been uploaded and renamed to: ${msg.topic}</p>\n <p><a href=\"downloads/${msg.topic}\">Click here to download</a></p>\n  \n </body>\n </html>\n`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 1420,
+        "wires": [
+            [
+                "548332e01522b344"
+            ]
+        ]
+    },
+    {
+        "id": "98b630386bb5f242",
+        "type": "http in",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "url": "/downloads/:filename",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 250,
+        "y": 1500,
+        "wires": [
+            [
+                "e0cc2ff648c4902d"
+            ]
+        ]
+    },
+    {
+        "id": "e0cc2ff648c4902d",
+        "type": "function",
+        "z": "1b0f053505a5bb42",
+        "name": "function 5",
+        "func": "msg.filename='/data/uploads/'+msg.req.params.filename;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1600,
+        "wires": [
+            [
+                "2f103c1577c90a53"
+            ]
+        ]
+    },
+    {
+        "id": "2f103c1577c90a53",
+        "type": "file in",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "filename": "filename",
+        "filenameType": "msg",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 560,
+        "y": 1500,
+        "wires": [
+            [
+                "6045c95c6c3a330e"
+            ]
+        ]
+    },
+    {
+        "id": "6045c95c6c3a330e",
+        "type": "http response",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 670,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "e7b94be533ae4eab",
+        "type": "ui_gauge",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "group": "df3151f712512caf",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "50",
+        "seg2": "80",
+        "diff": false,
+        "className": "",
+        "x": 630,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "afe3df29aa81c2f4",
+        "type": "ui_slider",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "df3151f712512caf",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "className": "",
+        "x": 450,
+        "y": 1800,
+        "wires": [
+            [
+                "e7b94be533ae4eab"
+            ]
+        ]
+    },
+    {
+        "id": "54b427aa27c39682",
+        "type": "inject",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 270,
+        "y": 1800,
+        "wires": [
+            [
+                "afe3df29aa81c2f4"
+            ]
+        ]
+    },
+    {
+        "id": "9d8023b23e2f6654",
+        "type": "http in",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "url": "/set",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 280,
+        "y": 1920,
+        "wires": [
+            [
+                "f9ee10ecd2d8bfbd",
+                "00700f1103379f04"
+            ]
+        ]
+    },
+    {
+        "id": "f9ee10ecd2d8bfbd",
+        "type": "function",
+        "z": "1b0f053505a5bb42",
+        "name": "function 6",
+        "func": "let value=msg.payload.value;\nif(value>100)\n    value=100;\nelse if(value<0)\n    value=0;\nmsg.payload=value;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 1920,
+        "wires": [
+            [
+                "e7b94be533ae4eab"
+            ]
+        ]
+    },
+    {
+        "id": "00700f1103379f04",
+        "type": "http response",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "text/html"
+        },
+        "x": 470,
+        "y": 2020,
+        "wires": []
+    },
+    {
+        "id": "e429978eb7733a65",
+        "type": "inject",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 250,
+        "y": 2100,
+        "wires": [
+            [
+                "77a601d553acc1b8"
+            ]
+        ]
+    },
+    {
+        "id": "77a601d553acc1b8",
+        "type": "ui_form",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "label": "",
+        "group": "beb09363e0e7a10e",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Value(0-100)",
+                "value": "value",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "value": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 430,
+        "y": 2120,
+        "wires": [
+            [
+                "cf4919bed6dcb956"
+            ]
+        ]
+    },
+    {
+        "id": "cf4919bed6dcb956",
+        "type": "http request",
+        "z": "1b0f053505a5bb42",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:1880/set",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 620,
+        "y": 2100,
+        "wires": [
+            [
+                "641041ecbcaff8fb"
+            ]
+        ]
+    },
+    {
+        "id": "641041ecbcaff8fb",
+        "type": "debug",
+        "z": "1b0f053505a5bb42",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 2120,
+        "wires": []
+    }
+]

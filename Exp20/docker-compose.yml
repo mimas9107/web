@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  apache:
+    image: httpd:latest  # 使用官方 Apache 映像
+    container_name: my-apache  # 設定容器名稱
+    ports:
+      - "8080:80"  # 將本機的 8080 端口對應到容器內的 80 端口
+    environment:
+      - SERVER_NAME=localhost  # 設定 Apache 環境變數
+    volumes:
+      - ./html:/usr/local/apache2/htdocs  # 掛載本機的 html 目錄到 Apache 預設網站根目錄
+    restart: always  # 設定容器自動重啟策略

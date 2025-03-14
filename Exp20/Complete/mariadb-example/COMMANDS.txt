@@ -1,0 +1,3 @@
+docker build -t my-mariadb .
+
+docker run -d --name mariadb-container -p 3306:3306 -v .\mariadb_data:/var/lib/mysql my-mariadb

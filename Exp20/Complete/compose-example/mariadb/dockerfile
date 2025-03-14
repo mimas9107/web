@@ -1,0 +1,17 @@
+# 使用官方 MariaDB 映像
+FROM mariadb:latest
+
+# 設定環境變數（設定 root 密碼、使用者帳號、資料庫名稱）
+ENV MYSQL_ROOT_PASSWORD=rootpassword
+ENV MYSQL_DATABASE=project_db
+ENV MYSQL_USER=project_user
+ENV MYSQL_PASSWORD=projectpassword
+
+# 複製 SQL 初始化腳本到 MariaDB 預設的 /docker-entrypoint-initdb.d/ 目錄
+COPY init-scripts/ /docker-entrypoint-initdb.d/
+
+# 掛載資料持久化目錄
+VOLUME /var/lib/mysql
+
+# 暴露 3306 端口（MariaDB 預設埠）
+EXPOSE 3306

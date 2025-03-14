@@ -1,0 +1,20 @@
+# 基於 php:8.2-apache 來安裝 PHP MySQL 套件
+FROM php:8.2-apache
+
+# 使用官方提供的方式安裝 mysqli 擴展
+RUN docker-php-ext-install mysqli
+
+# 設定 Apache 預設網站目錄
+WORKDIR /var/www/html
+
+# 複製應用程式到 Apache 網頁根目錄
+COPY test.php /var/www/html/
+
+# 確保 Apache 可讀寫
+RUN chown -R www-data:www-data /var/www/html
+
+# 開放 80 端口（Apache 預設埠）
+EXPOSE 80
+
+# 正確啟動 Apache，確保它在前景模式運行
+ENTRYPOINT ["apache2-foreground"]

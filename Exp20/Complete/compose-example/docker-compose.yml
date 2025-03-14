@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  php:
+    build: ./php  # 使用 php 的 Dockerfile
+    container_name: php-app
+    ports:
+      - "8080:80"
+    depends_on:
+      - mariadb
+    networks:
+      - my-network
+
+  mariadb:
+    build: ./mariadb  # 使用我們自訂的 MariaDB Dockerfile
+    container_name: mariadb-container
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: project_db
+      MYSQL_USER: project_user
+      MYSQL_PASSWORD: projectpassword
+    volumes:
+      - ./mariadb/mariadb_data:/var/lib/mysql
+    networks:
+      - my-network
+
+networks:
+  my-network:

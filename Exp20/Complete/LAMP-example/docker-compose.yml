@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  # Apache and PHP service
+  web:
+    image: sohmc/php-mysqli:8.2-apache
+    container_name: my-php-apache-container
+    networks:
+      - my-network
+    ports:
+      - "8080:80"
+    volumes:
+      - ./php:/var/www/html
+    depends_on:
+      - mariadb      
+
+  # MariaDB service
+  mariadb:
+    image: mariadb:latest
+    container_name: my-mariadb-container
+    networks:
+      - my-network
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: test123
+      MYSQL_USER: leech
+      MYSQL_PASSWORD: test123      
+    volumes:
+      - ./mariadb:/var/lib/mysql
+
+  # phpMyAdmin service
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: my-phpmyadmin-container
+    networks:
+      - my-network    
+    ports:
+      - "8082:80"
+    environment:
+      PMA_HOST: mariadb
+      MYSQL_ROOT_PASSWORD: test123
+    depends_on:
+      - mariadb
+
+# Define networks
+networks:
+  my-network:
